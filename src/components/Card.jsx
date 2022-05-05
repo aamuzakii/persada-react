@@ -29,6 +29,7 @@ function Card({el}) {
     <div className="card m-2 clickable-card" style={{width: '18rem'}} >
       {/* <img src="..." className="card-img-top" alt="..." /> */}
       <div className="card-body">
+        <h1>A</h1>
       </div>
     </div>
   );
