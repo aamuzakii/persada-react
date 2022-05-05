@@ -7,15 +7,16 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-// import DetailPage from './views/DetailPage'
+import Home from './views/Home'
 
 function App() {
   return (
     <>
       {/* <Navbar/> */}
-      <Routes>
+      {/* <Routes> */}
         {/* <Route exact path="/" children={ <Home/> } /> */}
-      </Routes>
+      {/* </Routes> */}
+      <Home></Home>
     </>
   )
 }
