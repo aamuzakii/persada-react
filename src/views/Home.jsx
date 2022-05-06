@@ -8,9 +8,12 @@ import {Button, Box } from '@mui/material';
 function Home() {
 
   return (
-    <div className="d-flex flex-wrap" >
+    <div>
       <Navbar/>
       <Box
+        display="flex" 
+        alignItems="center"
+        justifyContent="center"
         component="img"
         sx={{
           height: 233,

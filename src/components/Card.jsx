@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
+import {Button} from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -48,6 +49,9 @@ export default function RecipeReviewCard() {
         <Typography variant="body2" color="text.secondary">
           Rp. 10.000
         </Typography>
+        <Button variant="contained" disableElevation>
+          + Beli
+        </Button>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
