@@ -54,8 +54,8 @@ function SwipeableEdgeDrawer(props) {
           },
         }}
       />
-      <Box sx={{ textAlign: 'center', pt: 1 }}>
-        <Button onClick={toggleDrawer(true)}>Kategori</Button>
+      <Box sx={{ textAlign: 'left', pt: 1 }}>
+        <Button sx={{ mb: 1, ml: 1 }} variant="contained" disableElevation onClick={toggleDrawer(true)}>Kategori</Button>
       </Box>
       <SwipeableDrawer
         container={container}

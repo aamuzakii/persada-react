@@ -3,6 +3,7 @@ import React from 'react'
 import Navbar from '../components/AdvNavbar'
 import SwipeableEdgeDrawer from '../components/SwipeableEdgeDrawer'
 import Card from '../components/Card'
+import TemporaryDrawer from '../components/TemporaryDrawer'
 import Container from '../components/Container'
 import {Button, Box } from '@mui/material';
 
@@ -11,6 +12,7 @@ function Home() {
   return (
     <div>
       <Navbar/>
+      {/* <TemporaryDrawer></TemporaryDrawer> */}
       <Box
         display="flex" 
         alignItems="center"
