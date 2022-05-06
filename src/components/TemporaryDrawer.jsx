@@ -30,7 +30,7 @@ export default function TemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}
+      sx={{ width: 200 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -68,6 +68,9 @@ export default function TemporaryDrawer() {
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            sx={{
+              '& .MuiDrawer-paper': { boxSizing: 'border-box', height: '100%' },
+            }}
           >
             {list(anchor)}
           </Drawer>
