@@ -1,8 +1,9 @@
 import React from 'react'
 // import Card from '../components/Card'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/AdvNavbar'
 import Card from '../components/Card'
 import Container from '../components/Container'
+import Select from '../components/Select'
 import {Button, Box } from '@mui/material';
 
 function Home() {
@@ -24,9 +25,8 @@ function Home() {
         alt="The house from the offer."
         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
       />
+      <Select></Select>
       <Container>
-        <Card>
-        </Card>
         
       </Container>
     </div>

@@ -17,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} p={2}>
         <Grid item xs={6}>
           <Card></Card>
         </Grid>
