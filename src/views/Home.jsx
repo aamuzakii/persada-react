@@ -2,11 +2,12 @@ import React from 'react'
 // import Card from '../components/Card'
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
-import { Container, Button, Box } from '@mui/material';
+import Container from '../components/Container'
+import {Button, Box } from '@mui/material';
 
 function Home() {
 
-  if (1) return (
+  return (
     <div className="d-flex flex-wrap" >
       <Navbar/>
       <Box

@@ -35,31 +35,18 @@ export default function RecipeReviewCard() {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image="https://asset.kompas.com/crops/_WvzK60_BXHkdYP_7DEBuprlcuU=/211x0:1261x700/750x500/data/photo/2020/12/08/5fcfa34e6d44d.png"
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          Honda PCX
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Rp. 10.000
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
