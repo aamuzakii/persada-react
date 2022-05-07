@@ -81,7 +81,6 @@ function SwipeableBottomDrawer(props) {
           }}
         >
           <Puller />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
         </StyledBox>
         <StyledBox
           sx={{
@@ -90,7 +89,6 @@ function SwipeableBottomDrawer(props) {
             pt: 3,
             height: '100%',
             overflow: 'auto',
-            borderTopRightRadius: 8
           }}
         >
           <BasicStack></BasicStack>
