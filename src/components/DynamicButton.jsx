@@ -4,7 +4,7 @@ import { height } from '@mui/system';
 
 function DynamicButton() {
 
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(0)
 
   const increment = () => {
     setQty(qty + 1)

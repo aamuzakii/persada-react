@@ -39,9 +39,11 @@ export default function RecipeReviewCard() {
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        height="194"
         image="https://asset.kompas.com/crops/_WvzK60_BXHkdYP_7DEBuprlcuU=/211x0:1261x700/750x500/data/photo/2020/12/08/5fcfa34e6d44d.png"
         alt="Paella dish"
+        sx={{
+          objectFit: 'scale-down'
+        }}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
