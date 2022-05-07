@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/AdvNavbar'
 import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
 import Container from '../components/Container'
-import BottomPaper from '../components/BottomPaper'  
+import ShoppingSnackbar from '../components/ShoppingSnackbar'  
 import {Button, Box } from '@mui/material';
 
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
         
       </Container>
       <footer style={{color: "gray", position: "fixed", bottom: 0}}>
-        <BottomPaper></BottomPaper>
+        <ShoppingSnackbar></ShoppingSnackbar>
       </footer>
     </div>
   )
