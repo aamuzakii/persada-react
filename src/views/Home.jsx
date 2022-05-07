@@ -31,8 +31,10 @@ function Home() {
       <SwipeableBottomDrawer></SwipeableBottomDrawer>
       <Container>
         
-      <BottomPaper></BottomPaper>
       </Container>
+      <footer style={{color: "gray", position: "fixed", bottom: 0}}>
+        <BottomPaper></BottomPaper>
+      </footer>
     </div>
   )
 }
