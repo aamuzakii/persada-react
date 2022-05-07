@@ -46,10 +46,10 @@ export default function RecipeReviewCard() {
         <Typography variant="body2" color="text.secondary">
           Honda PCX
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
           Rp. 10.000
         </Typography>
-        <Button variant="contained" disableElevation>
+        <Button variant="contained" disableElevation sx={{ width: '100%' }}>
           + Beli
         </Button>
       </CardContent>
