@@ -10,6 +10,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import BasicStack from '../components/BasicStack'
+import CustomSelect from './CustomSelect'
 
 const drawerBleeding = 56;
 
@@ -55,9 +56,7 @@ function SwipeableEdgeDrawer(props) {
           },
         }}
       />
-      <Box sx={{ textAlign: 'left', pt: 1 }}>
-        <Button sx={{ mb: 1, ml: 1 }} variant="contained" disableElevation onClick={toggleDrawer(true)}>Kategori</Button>
-      </Box>
+        <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
       <SwipeableDrawer
         container={container}
         anchor="bottom"
