@@ -72,7 +72,7 @@ function SwipeableEdgeDrawer(props) {
         <StyledBox
           sx={{
             position: 'absolute',
-            top: -drawerBleeding,
+            // top: -drawerBleeding,
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             visibility: 'visible',
@@ -80,8 +80,8 @@ function SwipeableEdgeDrawer(props) {
             left: 0,
           }}
         >
-          <Puller />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+          {/* <Puller /> */}
+          {/* <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography> */}
         </StyledBox>
         <StyledBox
           sx={{
@@ -91,7 +91,6 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-          {/* <Skeleton variant="rectangular" height="100%" /> */}
           <BasicStack></BasicStack>
         </StyledBox>
       </SwipeableDrawer>

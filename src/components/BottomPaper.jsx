@@ -12,17 +12,18 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function BasicStack() {
+export default function BottomPaper() {
+  console.log(11)
   return (
     <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
-        {[1,2,3,4,5].map((text, index) => (
+        {[1].map((text, index) => (
             <Item>
             <Typography variant="h7" component="div" color="text.primary">
               Semua Produk
             </Typography>
             <Typography variant="body4" sx={{ mb: 1.5 }} color="text.secondary">
-              {text} produk
+              1 produk
             </Typography>
           </Item> 
         ))}

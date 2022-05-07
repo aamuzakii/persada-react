@@ -1,10 +1,8 @@
 import React from 'react'
-// import Card from '../components/Card'
 import Navbar from '../components/AdvNavbar'
 import SwipeableEdgeDrawer from '../components/SwipeableEdgeDrawer'
-import Card from '../components/Card'
-import TemporaryDrawer from '../components/TemporaryDrawer'
 import Container from '../components/Container'
+import BottomPaper from '../components/BottomPaper'  
 import {Button, Box } from '@mui/material';
 
 function Home() {
@@ -12,7 +10,6 @@ function Home() {
   return (
     <div>
       <Navbar/>
-      {/* <TemporaryDrawer></TemporaryDrawer> */}
       <Box
         display="flex" 
         alignItems="center"
@@ -34,6 +31,7 @@ function Home() {
       <SwipeableEdgeDrawer></SwipeableEdgeDrawer>
       <Container>
         
+      <BottomPaper></BottomPaper>
       </Container>
     </div>
   )

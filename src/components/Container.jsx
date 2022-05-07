@@ -24,6 +24,13 @@ export default function BasicGrid() {
         <Grid item xs={6}>
           <Card></Card>
         </Grid>
+        <Grid item xs={6}>
+          <Card></Card>
+        </Grid>
+        <Grid item xs={6}>
+          <Card></Card>
+        </Grid>
+
       </Grid>
     </Box>
   );
