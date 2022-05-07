@@ -16,8 +16,8 @@ const drawerBleeding = 56;
 
 const Root = styled('div')(({ theme }) => ({
   height: '100%',
-  backgroundColor:
-    theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default,
+  // backgroundColor: theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default,
+  backgroundColor: 'white'
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -56,7 +56,10 @@ function SwipeableBottomDrawer(props) {
           },
         }}
       />
-        <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
+          <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10}} >Semua produk</div>
+        </div>
       <SwipeableDrawer
         container={container}
         anchor="bottom"
