@@ -15,6 +15,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import DynamicButton from './DynamicButton';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -49,9 +50,7 @@ export default function RecipeReviewCard() {
         <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
           Rp. 10.000
         </Typography>
-        <Button variant="contained" disableElevation sx={{ width: '100%' }}>
-          + Beli
-        </Button>
+        <DynamicButton></DynamicButton>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
