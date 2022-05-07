@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/AdvNavbar'
-import SwipeableEdgeDrawer from '../components/SwipeableEdgeDrawer'
+import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
 import Container from '../components/Container'
 import BottomPaper from '../components/BottomPaper'  
 import {Button, Box } from '@mui/material';
@@ -28,7 +28,7 @@ function Home() {
         alt="The house from the offer."
         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
       />
-      <SwipeableEdgeDrawer></SwipeableEdgeDrawer>
+      <SwipeableBottomDrawer></SwipeableBottomDrawer>
       <Container>
         
       <BottomPaper></BottomPaper>

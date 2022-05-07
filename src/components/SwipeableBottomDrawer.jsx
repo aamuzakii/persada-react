@@ -9,7 +9,7 @@ import {Box, Select} from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import BasicStack from '../components/BasicStack'
+import BasicStack from './BasicStack'
 import CustomSelect from './CustomSelect'
 
 const drawerBleeding = 56;
@@ -34,7 +34,7 @@ const Puller = styled(Box)(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
-function SwipeableEdgeDrawer(props) {
+function SwipeableBottomDrawer(props) {
   const { window } = props;
   const [open, setOpen] = React.useState(false);
 
@@ -80,15 +80,17 @@ function SwipeableEdgeDrawer(props) {
             left: 0,
           }}
         >
-          {/* <Puller /> */}
-          {/* <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography> */}
+          <Puller />
+          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
         </StyledBox>
         <StyledBox
           sx={{
             px: 2,
             pb: 2,
+            pt: 3,
             height: '100%',
             overflow: 'auto',
+            borderTopRightRadius: 8
           }}
         >
           <BasicStack></BasicStack>
@@ -98,7 +100,7 @@ function SwipeableEdgeDrawer(props) {
   );
 }
 
-SwipeableEdgeDrawer.propTypes = {
+SwipeableBottomDrawer.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -106,4 +108,4 @@ SwipeableEdgeDrawer.propTypes = {
   window: PropTypes.func,
 };
 
-export default SwipeableEdgeDrawer;
+export default SwipeableBottomDrawer;
