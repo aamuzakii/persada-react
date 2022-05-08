@@ -17,7 +17,7 @@ export default function BasicStack() {
     <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
         {[1,2,3,4,5].map((text, index) => (
-            <Item>
+            <Item key={text} >
             <Typography variant="h7" component="div" color="text.primary">
               Semua Produk
             </Typography>

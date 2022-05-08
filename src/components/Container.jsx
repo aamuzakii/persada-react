@@ -19,10 +19,10 @@ export default function BasicGrid() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} p={2}>
       {['honda', 'vario', 'astra', 'tesla'].map((text, index) => (
-        <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}}>
-        <Card name={text}></Card>
-      </Grid>
-        ))}
+        <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={index} >
+          <Card name={text}></Card>
+        </Grid>
+      ))}
       </Grid>
     </Box>
   );
