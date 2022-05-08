@@ -4,15 +4,18 @@ import { height } from '@mui/system';
 
 function DynamicButton({childToParent}) {
 
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(0)
 
   const increment = () => {
-    setQty(qty + 1);
-    childToParent(qty)
+    const newQty = qty + 1
+    setQty(newQty);
+    childToParent(newQty)
   }
 
   const decrement = () => {
-    setQty(qty - 1)
+    const newQty = qty - 1
+    setQty(newQty);
+    childToParent(newQty)
   }
 
   if (qty < 1) {

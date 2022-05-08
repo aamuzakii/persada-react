@@ -5,10 +5,19 @@ import Container from '../components/Container'
 import ShoppingSnackbar from '../components/ShoppingSnackbar'  
 import {Button, Box } from '@mui/material';
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux' 
+import  {setIsCartFilled}  from '../store/actions/company'
 
 function Home() {
+  const dispatch = useDispatch()
   const isCartFilled = useSelector( state => state.company.isCartFilled)
   let insideCart = useSelector( state => state.company.insideCart)
+
+  const totalItemInCart = Object.keys(insideCart).reduce(function (previous, key) {
+    return previous + insideCart[key].qty;
+  }, 0);
+
+  dispatch(setIsCartFilled(totalItemInCart))
 
 
   return (

@@ -41,13 +41,8 @@ export default function RecipeReviewCard({name}) {
   let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
 
-  function setInsideCartLocal() {
-    dispatch(setInsideCart(insideCart))
-  }
-
   const childToParent = (qty) => {
     insideCart = { ...insideCart, [name]: {name: name, qty: qty} }
-    console.log(insideCart)
     dispatch(setInsideCart(insideCart))
   }
 
