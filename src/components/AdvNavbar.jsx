@@ -16,7 +16,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
-import TemporaryDrawer from '../components/TemporaryDrawer'
+import SideDrawer from '../components/SideDrawer'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -168,7 +168,7 @@ export default function PrimarySearchAppBar() {
             sx={{ mr: 2 }}
           >
             {/* <MenuIcon /> */}
-            <TemporaryDrawer/>
+            <SideDrawer/>
           </IconButton>
           <Typography
             variant="h6"

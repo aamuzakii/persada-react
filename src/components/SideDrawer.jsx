@@ -12,7 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 
-export default function TemporaryDrawer() {
+export default function SideDrawer() {
   const [state, setState] = React.useState({
     top: false,
     left: false,
