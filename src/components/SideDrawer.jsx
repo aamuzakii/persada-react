@@ -11,6 +11,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 
 export default function SideDrawer() {
   const [state, setState] = React.useState({
@@ -30,20 +32,20 @@ export default function SideDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 200 }}
+      sx={{ width: '85vw' }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <Avatar /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <div style={{ display: 'flex', justifyContent: 'space-between', margin: 7, alignItems: 'center'}}>
+          <div><Avatar sx={{ marginRight: 1}} ></Avatar></div>
+          <div>
+            <div style={{fontWeight: 600, fontSize: '14px'}} >Pesanan Saya</div>
+            <div style={{ letterSpacing: '0.5px', color: 'rgb(96, 96, 96)', fontSize: '12px' }} >Semua pesananmu di Persada shop dapat dilihat di sini.</div>
+          </div>
+          <div><ArrowForwardIcon></ArrowForwardIcon></div>
+        </div>
       </List>
       <Divider />
       <List>
