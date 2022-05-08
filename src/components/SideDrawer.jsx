@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import Avatar from '@mui/material/Avatar';
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
@@ -38,8 +38,8 @@ export default function SideDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <div style={{ display: 'flex', justifyContent: 'space-between', margin: 7, alignItems: 'center'}}>
-          <div><Avatar sx={{ marginRight: 1}} ></Avatar></div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', margin: 15, alignItems: 'center'}}>
+          <div><AccountBoxOutlinedIcon sx={{ marginRight: 2}} ></AccountBoxOutlinedIcon></div>
           <div>
             <div style={{fontWeight: 600, fontSize: '14px'}} >Pesanan Saya</div>
             <div style={{ letterSpacing: '0.5px', color: 'rgb(96, 96, 96)', fontSize: '12px' }} >Semua pesananmu di Persada shop dapat dilihat di sini.</div>
