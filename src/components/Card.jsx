@@ -16,6 +16,9 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DynamicButton from './DynamicButton';
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux' 
+import  {setInsideCart}  from '../store/actions/company'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -28,12 +31,25 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({name}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  let insideCart = useSelector( state => state.company.insideCart)
+  const dispatch = useDispatch()
+
+  function setInsideCartLocal() {
+    dispatch(setInsideCart(insideCart))
+  }
+
+  const childToParent = (qty) => {
+    insideCart = { ...insideCart, [name]: {name: name, qty: qty} }
+    console.log(insideCart)
+    dispatch(setInsideCart(insideCart))
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -45,12 +61,12 @@ export default function RecipeReviewCard() {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Honda PCX
+          {name}
         </Typography>
         <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
           Rp. 10.000
         </Typography>
-        <DynamicButton></DynamicButton>
+        <DynamicButton childToParent={childToParent} ></DynamicButton>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

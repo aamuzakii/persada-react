@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux'
 
 function Home() {
   const isCartFilled = useSelector( state => state.company.isCartFilled)
+  let insideCart = useSelector( state => state.company.insideCart)
+
 
   return (
     <div>
@@ -31,6 +33,7 @@ function Home() {
         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
       />
       <SwipeableBottomDrawer></SwipeableBottomDrawer>
+      {/* {JSON. stringify(insideCart)} */}
       <Container>
         
       </Container>
