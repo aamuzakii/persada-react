@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Card from '../components/Card'
+import { useSelector } from 'react-redux'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -15,12 +16,15 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function BasicGrid() {
+  let productToShow = useSelector( state => state.company.productToShow)
+  console.log(productToShow, `<<<`)
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} p={2}>
-      {['honda', 'vario', 'astra', 'tesla'].map((text, index) => (
+      {productToShow.map((obj, index) => (
         <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={index} >
-          <Card name={text}></Card>
+          <Card name={obj.name} price={obj.price} image_url={obj.image_url}></Card>
         </Grid>
       ))}
       </Grid>

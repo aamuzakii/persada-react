@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW } from '../actionTypes'
 
 export function addToFavourite(input) {
   return {
@@ -46,6 +46,12 @@ export function setIsLoading(input) {
 export function setIsCartFilled(input) {
   return {
     type: SET_IS_CART_FILLED,
+    payload: input
+  }
+}
+export function setProductToShow(input) {
+  return {
+    type: SET_PRODUCT_TO_SHOW,
     payload: input
   }
 }
@@ -104,27 +110,53 @@ export function fetchSearch(query) {
   }
 }
 
-export function fetchProductsByCategory(category) {
-  console.log(11)
-  return dispatch => {
-    let url = `http://localhost:3000/products`
-    fetch(url, {
-      "method": "GET",
-      "headers": {
-      }
-    })
-    .then( response => {
-      console.log(response)
-      return response.json()
-    })
-    .then( data => {
-      dispatch(setRecommendations(data))
-    })
-    .catch( err => {
-      console.log(err)
-    })
-    .finally( () => {
-      dispatch(setIsLoading(false))
-    })
-  }
+export function fetchProductsByCategory() {
+  return ((dispatch) => {
+    let url = 'http://localhost:3000/products'
+
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        dispatch(setProductToShow(result))
+      })
+      .catch(error => console.log('error', error));
+    // fetch("http://localhost:3000/products", {
+    //   "headers": {
+    //     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    //     "accept-language": "en-US,en;q=0.9",
+    //     "cache-control": "max-age=0",
+    //     "sec-fetch-dest": "document",
+    //     "sec-fetch-mode": "navigate",
+    //     "sec-fetch-site": "none",
+    //     "sec-fetch-user": "?1",
+    //     "upgrade-insecure-requests": "1"
+    //   },
+    //   "referrerPolicy": "strict-origin-when-cross-origin",
+    //   "body": null,
+    //   "method": "GET",
+    //   "mode": "cors",
+    //   "credentials": "include"
+    // })
+    // .then( response => {
+    //   console.log(111)
+    //   console.log(response.json())
+    //   return response.json()
+    // })
+    // .then( data => {
+    //   dispatch(setRecommendations(data.finance.result[0].quotes))
+    // })
+    // .catch( err => {
+    //   console.log(err)
+    // })
+    // .finally( () => {
+    //   console.log('ini final')
+    //   dispatch(setIsLoading(false))
+    // })
+  })
 }

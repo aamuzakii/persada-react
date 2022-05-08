@@ -31,7 +31,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({name}) {
+export default function RecipeReviewCard({name, price, image_url}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -50,7 +50,7 @@ export default function RecipeReviewCard({name}) {
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        image="https://asset.kompas.com/crops/_WvzK60_BXHkdYP_7DEBuprlcuU=/211x0:1261x700/750x500/data/photo/2020/12/08/5fcfa34e6d44d.png"
+        image={image_url}
         alt="Paella dish"
         sx={{
           objectFit: 'scale-down'
@@ -61,7 +61,7 @@ export default function RecipeReviewCard({name}) {
           {name}
         </Typography>
         <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
-          Rp. 10.000
+          {price}
         </Typography>
         <DynamicButton childToParent={childToParent} ></DynamicButton>
       </div>

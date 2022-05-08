@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Global } from '@emotion/react';
 import { styled } from '@mui/material/styles';
@@ -38,7 +38,10 @@ const Puller = styled(Box)(({ theme }) => ({
 
 function SwipeableBottomDrawer(props) {
   const dispatch = useDispatch()
-  dispatch(fetchProductsByCategory)
+  useEffect(() => {
+    dispatch(fetchProductsByCategory())
+  }, [])
+
 
   const { window } = props;
   const [open, setOpen] = React.useState(false);
