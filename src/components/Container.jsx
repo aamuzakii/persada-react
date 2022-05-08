@@ -18,9 +18,9 @@ export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} p={2}>
-      {[1,2,3,4,5].map((text, index) => (
+      {['honda', 'vario', 'astra', 'tesla'].map((text, index) => (
         <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}}>
-        <Card></Card>
+        <Card name={text}></Card>
       </Grid>
         ))}
       </Grid>

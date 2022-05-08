@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART } from '../actionTypes'
 
 export function addToFavourite(input) {
   return {
@@ -17,6 +17,13 @@ export function setRecommendations(input) {
 export function setCurrentCompany(input) {
   return {
     type: SET_CURRENT_COMPANY,
+    payload: input
+  }
+}
+
+export function setInsideCart(input) {
+  return {
+    type: SET_INSIDE_CART,
     payload: input
   }
 }
