@@ -56,7 +56,7 @@ export default function RecipeReviewCard({name}) {
           objectFit: 'scale-down'
         }}
       />
-      <CardContent>
+      <div style={{ margin: 8 }}>
         <Typography variant="body2" color="text.secondary">
           {name}
         </Typography>
@@ -64,7 +64,7 @@ export default function RecipeReviewCard({name}) {
           Rp. 10.000
         </Typography>
         <DynamicButton childToParent={childToParent} ></DynamicButton>
-      </CardContent>
+      </div>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />

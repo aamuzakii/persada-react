@@ -44,7 +44,6 @@ export function setIsLoading(input) {
 }
 
 export function setIsCartFilled(input) {
-  console.log(`masuk`)
   return {
     type: SET_IS_CART_FILLED,
     payload: input
@@ -105,17 +104,17 @@ export function fetchSearch(query) {
   }
 }
 
-export function fetchCompanyById(symbol) {
+export function fetchProductsByCategory(category) {
+  console.log(11)
   return dispatch => {
-    let url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/auto-complete?query=${symbol}&region=US`
+    let url = `http://localhost:3000/products`
     fetch(url, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
-        "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
       }
     })
     .then( response => {
+      console.log(response)
       return response.json()
     })
     .then( data => {
