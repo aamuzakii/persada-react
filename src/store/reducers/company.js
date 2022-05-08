@@ -1,11 +1,12 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED } from '../actionTypes'
 
 const initialState = {
   favourites : [],
   recommendations: [],
   searchResult : [],
   isLoading: false,
-  currentCompany: {}
+  currentCompany: {},
+  isCartFilled: true
 }
 
 function companyReducer (state = initialState, action) {
@@ -22,6 +23,8 @@ function companyReducer (state = initialState, action) {
         return { ...state, isLoading : payload }
       case SET_CURRENT_COMPANY:
         return { ...state, currentCompany : payload }
+      case SET_IS_CART_FILLED:
+        return { ...state, isCartFilled : payload }
       default:
         return state
   }

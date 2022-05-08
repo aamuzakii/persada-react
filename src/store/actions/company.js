@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED } from '../actionTypes'
 
 export function addToFavourite(input) {
   return {
@@ -32,6 +32,14 @@ export function setIsLoading(input) {
   console.log(`siao`)
   return {
     type: SET_IS_LOADING,
+    payload: input
+  }
+}
+
+export function setIsCartFilled(input) {
+  console.log(`masuk`)
+  return {
+    type: SET_IS_CART_FILLED,
     payload: input
   }
 }

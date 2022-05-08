@@ -4,8 +4,10 @@ import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
 import Container from '../components/Container'
 import ShoppingSnackbar from '../components/ShoppingSnackbar'  
 import {Button, Box } from '@mui/material';
+import { useSelector } from 'react-redux'
 
 function Home() {
+  const isCartFilled = useSelector( state => state.company.isCartFilled)
 
   return (
     <div>
@@ -32,9 +34,10 @@ function Home() {
       <Container>
         
       </Container>
-      <footer style={{color: "gray", position: "fixed", bottom: 0}}>
+      {isCartFilled ? <footer style={{color: "gray", position: "fixed", bottom: 0}}>
         <ShoppingSnackbar></ShoppingSnackbar>
-      </footer>
+      </footer> : <></>}
+      
     </div>
   )
 }
