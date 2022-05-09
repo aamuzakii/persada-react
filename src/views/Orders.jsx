@@ -1,47 +1,21 @@
-import * as React from 'react';
-import Chip from '@mui/material/Chip';
+import React from 'react'
+import ChipsRow from '../components/ChipsRow'
+import EmptyOrder from '../components/EmptyOrder'
+import NavbarOrder from '../components/NavbarOrder'
 
-
-export default function Orders() {
-  const arrOfChip = [
-    {
-      label: 'Semua Pesanan',
-      value: 'all'
-    },
-    {
-      label: 'Belum Dibayar',
-      value: 'unpaid'
-    },
-    {
-      label: 'Diproses',
-      value: 'on_process'
-    },
-    {
-      label: 'Dikirim',
-      value: 'on_delivery'
-    },
-    {
-      label: 'Selesai',
-      value: 'finished'
-    },
-    {
-      label: 'Gagal',
-      value: 'done'
-    }
-  ]
+function Orders() {
   return (
-    <div style={{ display: 'flex', margin: 10}} >
-      {arrOfChip.map(({label, value}, index) => (
-        <Chip
-          label={label}
-          component="a"
-          href={"/orders?type=" + value}
-          variant="outlined"
-          clickable
-          sx={{ margin: 0.5, fontWeight: 'bold', color: 'rgb(21, 101, 192)'}}
-        />
-      ))}
-      
-    </div>
-  );
+    <>
+      <NavbarOrder></NavbarOrder>
+      <div style={{ margin: 15}} >
+        <div style={{fontSize: '12px'}} >Semua pesananmu di online shop Persada dapat dilihat di sini.</div>
+        <div style={{ fontWeight: 'bold', color: 'rgb(102, 102, 102)' }} >Pesanan Saya</div>
+      </div>
+        <ChipsRow></ChipsRow>
+        <EmptyOrder></EmptyOrder>
+    </>
+    
+  )
 }
+
+export default Orders
