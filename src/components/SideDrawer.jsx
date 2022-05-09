@@ -12,9 +12,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import {withRouter} from 'react-router-dom';
 
 
-export default function SideDrawer() {
+function SideDrawer({history}) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -30,17 +31,19 @@ export default function SideDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
+  const nextPath = (path) => {
+    history.push(path)
+  }
+
   const list = (anchor) => (
     <Box
       sx={{ width: '85vw' }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <div style={{ display: 'flex', justifyContent: 'space-between', margin: 15, alignItems: 'center'}}>
           <div><AccountBoxOutlinedIcon sx={{ marginRight: 2}} ></AccountBoxOutlinedIcon></div>
-          <div>
+          <div onClick={() => nextPath('/orders') } >
             <div style={{fontWeight: 600, fontSize: '14px'}} >Pesanan Saya</div>
             <div style={{ letterSpacing: '0.5px', color: 'rgb(96, 96, 96)', fontSize: '12px' }} >Semua pesananmu di Persada shop dapat dilihat di sini.</div>
           </div>
@@ -81,3 +84,5 @@ export default function SideDrawer() {
     </div>
   );
 }
+
+export default withRouter(SideDrawer)
