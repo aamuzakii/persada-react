@@ -39,6 +39,7 @@ export default function ChipsRow() {
           variant="outlined"
           clickable
           sx={{ margin: 0.5, fontWeight: 'bold', color: 'rgb(21, 101, 192)'}}
+          key={value}
         />
       ))}
       

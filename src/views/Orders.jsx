@@ -8,7 +8,7 @@ function Orders() {
     <>
       <NavbarOrder></NavbarOrder>
       <div style={{ margin: 15}} >
-        <div style={{fontSize: '12px'}} >Semua pesananmu di online shop Persada dapat dilihat di sini.</div>
+        <div style={{fontSize: '12px'}} >Semua pesananmu di Persada shop dapat dilihat di sini.</div>
         <div style={{ fontWeight: 'bold', color: 'rgb(102, 102, 102)' }} >Pesanan Saya</div>
       </div>
         <ChipsRow></ChipsRow>

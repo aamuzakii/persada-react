@@ -12,7 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import {withRouter} from 'react-router-dom';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 
 function SideDrawer({history}) {
@@ -41,14 +41,14 @@ function SideDrawer({history}) {
       role="presentation"
     >
       <List>
-        <div style={{ display: 'flex', justifyContent: 'space-between', margin: 15, alignItems: 'center'}}>
-          <div><AccountBoxOutlinedIcon sx={{ marginRight: 2}} ></AccountBoxOutlinedIcon></div>
-          <div onClick={() => nextPath('/orders') } >
-            <div style={{fontWeight: 600, fontSize: '14px'}} >Pesanan Saya</div>
+        <Link to="/orders" style={{ display: 'flex', justifyContent: 'space-between', margin: 15, alignItems: 'center', textDecoration: 'none'}}>
+          <div><AccountBoxOutlinedIcon sx={{ marginRight: 2, color: 'black'}} ></AccountBoxOutlinedIcon></div>
+          <div>
+            <div style={{fontWeight: 600, fontSize: '14px', color: 'black'}} >Pesanan Saya</div>
             <div style={{ letterSpacing: '0.5px', color: 'rgb(96, 96, 96)', fontSize: '12px' }} >Semua pesananmu di Persada shop dapat dilihat di sini.</div>
           </div>
           <div><ArrowForwardIcon></ArrowForwardIcon></div>
-        </div>
+        </Link>
       </List>
       <Divider />
       <List>
@@ -85,4 +85,4 @@ function SideDrawer({history}) {
   );
 }
 
-export default withRouter(SideDrawer)
+export default SideDrawer

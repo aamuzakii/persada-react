@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Switch, Route, NavLink } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 
 import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
@@ -18,7 +18,7 @@ export default function NavbarOrder() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <ArrowBackSharpIcon></ArrowBackSharpIcon>
+          <Link style={{textDecoration: 'none', color: 'white'}} to="/"><ArrowBackSharpIcon></ArrowBackSharpIcon></Link>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <SearchOutlinedIcon sx={{ margin: 1 }} ></SearchOutlinedIcon>
