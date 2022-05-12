@@ -3,6 +3,8 @@ import {Box, Typography} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import { useSelector } from 'react-redux'
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -13,16 +15,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function BasicStack() {
+  let productByCategory = useSelector( state => state.company.productByCategory)
+
+  let arr = []
+  for (let key in productByCategory) {
+    arr.push({ name: productByCategory[key].name, qty: productByCategory[key].count })
+  }
+
   return (
     <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
-        {[1,2,3,4,5].map((text, index) => (
-            <Item key={text} >
+        {arr.map(({name, qty}, index) => (
+            <Item key={index} >
             <Typography variant="h7" component="div" color="text.primary">
-              Semua Produk
+              { name }
             </Typography>
             <Typography variant="body4" sx={{ mb: 1.5 }} color="text.secondary">
-              {text} produk
+              {qty} produk
             </Typography>
           </Item> 
         ))}

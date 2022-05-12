@@ -12,7 +12,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import BasicStack from './BasicStack'
 import CustomSelect from './CustomSelect'
 import { useDispatch } from 'react-redux' 
-import  {fetchProductsByCategory}  from '../store/actions/company'
+import  {fetchAllProducts}  from '../store/actions/company'
 
 const drawerBleeding = 56;
 
@@ -39,7 +39,7 @@ const Puller = styled(Box)(({ theme }) => ({
 function SwipeableBottomDrawer(props) {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchProductsByCategory())
+    dispatch(fetchAllProducts())
   }, [])
 
 

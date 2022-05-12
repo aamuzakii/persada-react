@@ -17,7 +17,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BasicGrid() {
   let productToShow = useSelector( state => state.company.productToShow)
-  console.log(productToShow, `<<<`)
 
   return (
     <Box sx={{ flexGrow: 1 }}>
