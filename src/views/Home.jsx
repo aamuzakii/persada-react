@@ -3,7 +3,7 @@ import Navbar from '../components/AdvNavbar'
 import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
 import Container from '../components/Container'
 import ShoppingSnackbar from '../components/ShoppingSnackbar'  
-import {Button, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 
 import  {setIsCartFilled}  from '../store/actions/company'
@@ -23,24 +23,9 @@ function Home() {
   return (
     <div>
       <Navbar/>
-      <Box
-        display="flex" 
-        alignItems="center"
-        justifyContent="center"
-        component="img"
-        sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 233, md: 167 },
-          maxWidth: { xs: 350, md: 250 },
-          position: 'relative',
-          transform: 'translateX(-50%)',
-          display: 'inline-block',
-          left: '50%',
-        }}
-        alt="The house from the offer."
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
-      />
+      <div style={{ width: '100%', height: 233, display: 'flex', justifyContent: 'center', overflow: 'hidden', marginBottom: 15 }} >
+        <img style={{ height: 300 }}  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" alt=""  />
+      </div>
       <SwipeableBottomDrawer></SwipeableBottomDrawer>
       {/* {JSON. stringify(insideCart)} */}
       <Container>
