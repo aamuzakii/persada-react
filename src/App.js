@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './views/Home'
 import Orders from './views/Orders'
+import Cart from './views/Cart'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="orders" element={<Orders />} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </div>
   );
