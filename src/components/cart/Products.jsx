@@ -1,8 +1,14 @@
 import React from 'react'
 import DynamicButton from '../DynamicButton';
+import { useSelector } from 'react-redux'
+
+
 
 function Products() {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
+  
+  let insideCart = useSelector( state => state.company.insideCart)
+
 
 
   return (
@@ -14,6 +20,11 @@ function Products() {
         </div>
         <div style={blueMiniFont} >+ Tambah Produk</div>
       </div>
+
+      {/* BELOW ARE PRODUCTS */}
+      
+
+      <p>{JSON. stringify(insideCart)}</p>
 
 
       <div style={{ width: '100%' }} >
