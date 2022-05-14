@@ -17,13 +17,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BasicGrid() {
   let productToShow = useSelector( state => state.company.productToShow)
+  let insideCart = useSelector( state => state.company.insideCart)
+  // console.log(productToShow[0])
+
+  productToShow.map(getArrayValues);
+
+  function getArrayValues(item) {
+    // console.log( item);
+    let a = insideCart[item.id]
+    if (a) {
+      item.qty = insideCart[item.id].qty
+    }
+  }
+  console.log(productToShow)
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} p={2}>
       {productToShow.map((obj, index) => (
         <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={index} >
-          <Card name={obj.name} price={obj.price} image_url={obj.image_url} id={obj.id}></Card>
+          <Card name={obj.name} price={obj.price} image_url={obj.image_url} id={obj.id} qty={obj.qty} ></Card>
+          {/* <p>{obj.id}</p> */}
         </Grid>
       ))}
       </Grid>

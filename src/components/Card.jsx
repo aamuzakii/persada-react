@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({name, price, image_url, id}) {
+export default function RecipeReviewCard({name, price, image_url, id, qty}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -37,7 +37,7 @@ export default function RecipeReviewCard({name, price, image_url, id}) {
   const dispatch = useDispatch()
 
   const childToParent = (qty) => {
-    insideCart = { ...insideCart, [name]: {name: name, qty: qty, image_url: image_url, id: id, price: price} }
+    insideCart = { ...insideCart, [id]: {name: name, qty: qty, image_url: image_url, id: id, price: price} }
     let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
     dispatch(setInsideCartArray(arr))
@@ -69,7 +69,7 @@ export default function RecipeReviewCard({name, price, image_url, id}) {
         <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
           {price}
         </Typography>
-        <DynamicButton childToParent={childToParent} ></DynamicButton>
+        <DynamicButton childToParent={childToParent} qtyFromRedux={qty}></DynamicButton>
       </div>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

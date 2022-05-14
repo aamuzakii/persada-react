@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import {Button} from '@mui/material';
 
-function DynamicButton({childToParent}) {
+function DynamicButton({childToParent, qtyFromRedux}) {
 
-  const [qty, setQty] = useState(0)
+  let initialQty = qtyFromRedux || 0
+
+  const [qty, setQty] = useState(initialQty)
+
 
   const increment = () => {
     const newQty = qty + 1
