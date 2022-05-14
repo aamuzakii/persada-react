@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_INSIDE_CART_ARRAY } from '../actionTypes'
 
 const BASE_URI = process.env.REACT_APP_BASE_URI || 'http://ec2-3-139-70-62.us-east-2.compute.amazonaws.com'
 
@@ -33,6 +33,13 @@ export function setProductByCategory(input) {
 export function setInsideCart(input) {
   return {
     type: SET_INSIDE_CART,
+    payload: input
+  }
+}
+
+export function setInsideCartArray(input) {
+  return {
+    type: SET_INSIDE_CART_ARRAY,
     payload: input
   }
 }
@@ -127,7 +134,7 @@ export function fetchAllProducts() {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
+        console.log(result, `<<12`)
         dispatch(setProductToShow(result))
       })
       .catch(error => console.log('error', error));
@@ -146,7 +153,6 @@ export function fetchProductsAndCategory() {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         dispatch(setProductByCategory(result))
       })
       .catch(error => console.log('error', error));

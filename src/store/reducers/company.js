@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_INSIDE_CART_ARRAY } from '../actionTypes'
 
 const initialState = {
   favourites : [],
@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   currentCompany: {},
   insideCart: {},
+  insideCartArray: {},
   isCartFilled: true,
   productToShow: [],
   productByCategory: {}
@@ -34,6 +35,8 @@ function companyReducer (state = initialState, action) {
         return { ...state, productByCategory : payload }
       case SET_PRODUCT_TO_SHOW:
         return { ...state, productToShow : payload }
+      case SET_INSIDE_CART_ARRAY:
+        return { ...state, insideCartArray : payload }
       default:
         return state
   }
