@@ -1,0 +1,1 @@
+export const title = { padding: 16, fontWeight: 'bold', color: 'rgb(71, 75, 107)', fontSize: 16 }
