@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false,
   currentCompany: {},
   insideCart: {},
-  insideCartArray: {},
+  insideCartArray: [],
   isCartFilled: true,
   productToShow: [],
   productByCategory: {}
