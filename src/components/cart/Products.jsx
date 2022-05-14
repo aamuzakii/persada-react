@@ -15,12 +15,14 @@ function Products() {
     navigate('/');
   }
 
+  const typeQty = insideCartArray.length
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 12, boxShadow: 'rgb(0 0 0 / 14%) 0px 1px 4px', boxSizing: 'border-box' }} >
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%'}} >
         <div style={{ display: 'flex', alignItems: 'center'}} >
           <div style={{ margin: 10, fontWeight: 'bold', color: 'rgb(71, 75, 107)' }} >Keranjang</div>
-          <div style={{ padding: 10, backgroundColor: 'rgb(225, 228, 237)', borderRadius: 4, fontSize: 10 }} >2 Barang</div>
+          <div style={{ padding: 10, backgroundColor: 'rgb(225, 228, 237)', borderRadius: 4, fontSize: 10 }} >{typeQty} Barang</div>
         </div>
         <div style={blueMiniFont} onClick={handleClick} >+ Tambah Produk</div>
       </div>
