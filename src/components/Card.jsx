@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({name, price, image_url}) {
+export default function RecipeReviewCard({name, price, image_url, id}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -37,7 +37,7 @@ export default function RecipeReviewCard({name, price, image_url}) {
   const dispatch = useDispatch()
 
   const childToParent = (qty) => {
-    insideCart = { ...insideCart, [name]: {name: name, qty: qty} }
+    insideCart = { ...insideCart, [name]: {name: name, qty: qty, image_url: image_url, id: id} }
     dispatch(setInsideCart(insideCart))
   }
 
