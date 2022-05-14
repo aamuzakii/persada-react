@@ -31,7 +31,7 @@ export default function ChipsRow() {
   ]
   return (
     <div style={{ display: 'flex', margin: '10px 0px 10px 10px', overflow: 'auto'}} >
-      {arrOfChip.map(({label, value}, index) => (
+      {arrOfChip.map(({label, value}) => (
         <Chip
           label={label}
           component="a"

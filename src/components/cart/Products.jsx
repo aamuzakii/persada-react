@@ -45,16 +45,6 @@ function Products() {
 
     </div>
 
-
-
-    // {/* EACH PRODUCT HERE */}
-
-
-
-
-
-
-
   )
 }
 
