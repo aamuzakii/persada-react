@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
+import Flow from '../components/cart/Flow'  
+import ListProducts from '../components/cart/Products'  
 
 
 
@@ -11,7 +13,10 @@ function Cart() {
   }
     
   return (
-    <div>Cart</div>
+    <div style={{ width: '100%' }}>
+      <Flow></Flow>
+      <ListProducts></ListProducts>
+    </div >
   )
 }
 
