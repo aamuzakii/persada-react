@@ -27,13 +27,8 @@ function SideDrawer({history}) {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
-
-  const nextPath = (path) => {
-    history.push(path)
-  }
 
   const list = (anchor) => (
     <Box

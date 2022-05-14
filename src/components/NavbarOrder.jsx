@@ -1,17 +1,14 @@
-import * as React from 'react';
+import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Switch, Route, Link } from 'react-router-dom'
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 
-import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 export default function NavbarOrder() {
   return (

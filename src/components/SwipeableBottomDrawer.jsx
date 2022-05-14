@@ -4,7 +4,7 @@ import { Global } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
-import {Box, Select} from '@mui/material';
+import {Box} from '@mui/material';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import BasicStack from './BasicStack'
 import CustomSelect from './CustomSelect'
