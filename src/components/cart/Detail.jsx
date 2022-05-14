@@ -3,6 +3,7 @@ import DynamicButton from '../DynamicButton';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 
 import  {setInsideCart, setInsideCartArray}  from '../../store/actions/company'
+import { objToArr } from '../../helpers/Function'
 
 function Detail({id, name, price, image_url, qty}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
@@ -15,14 +16,6 @@ function Detail({id, name, price, image_url, qty}) {
     let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
     dispatch(setInsideCartArray(arr))
-  }
-
-  const objToArr = (obj) => {
-    let arr = []
-    for (const key of Object.keys(obj)) {
-      if (obj[key].qty > 0) arr.push(obj[key])
-    }
-    return arr
   }
 
   return (

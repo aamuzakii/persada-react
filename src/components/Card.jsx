@@ -14,6 +14,7 @@ import DynamicButton from './DynamicButton';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 
 import  {setInsideCart, setInsideCartArray}  from '../store/actions/company'
+import { objToArr } from '../helpers/Function'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -41,14 +42,6 @@ export default function RecipeReviewCard({name, price, image_url, id, qty}) {
     let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
     dispatch(setInsideCartArray(arr))
-  }
-
-  const objToArr = (obj) => {
-    let arr = []
-    for (const key of Object.keys(obj)) {
-      if (obj[key].qty > 0) arr.push(obj[key])
-    }
-    return arr
   }
 
   return (
