@@ -1,5 +1,6 @@
 import React from 'react'
 import DynamicButton from '../DynamicButton';
+import Detail from './Detail';
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 
@@ -26,25 +27,9 @@ function Products() {
 
       {/* BELOW ARE PRODUCTS */}
       
-
-      <p>{JSON. stringify(insideCartArray)}</p>
-
       {
-        insideCartArray.map(({id, name, price, image_url})=> (
-          <div style={{ width: '100%' }} >
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'center'}} >
-              <div style={{ width: '5rem', height: '5rem', display: 'flex' }} ><img src={image_url} alt="" style={{ maxWidth: '100%', objectFit: 'contain', borderRadius: '20%' }}  /></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: 15, alignItems: 'center'}} >
-                <div>
-                  <p style={{  fontSize: '0.9rem' }} >{ name }</p>
-                  <p style={{ fontWeight: 'bold', fontSize: '0.8rem' }} >{ price }</p>
-                </div>
-                <div style={{ width: 100 }} ><DynamicButton></DynamicButton></div>
-                <div><svg data-testid="close-item" id="0-remove-item" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7.467h1.333m0 0H18m-10.667 0V16.8a1.333 1.333 0 0 0 1.334 1.333h6.666a1.333 1.333 0 0 0 1.334-1.333V7.467H7.333zm2 0V6.133A1.333 1.333 0 0 1 10.667 4.8h2.666a1.333 1.333 0 0 1 1.334 1.333v1.334m-4 3.333v4m2.666-4v4" stroke="#7B8793" strokeLinecap="round" strokeLinejoin="round"></path></svg></div>
-              </div>
-            </div>
-            <div style={blueMiniFont} >+ Tambah Catatan</div>
-            </div>
+        insideCartArray.map(({id, name, price, image_url, qty})=> (
+          <Detail id={id} name={name} price={price} image_url={image_url} key={id} qty={qty}></Detail>
         ))
       }
 

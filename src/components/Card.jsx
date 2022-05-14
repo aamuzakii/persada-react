@@ -46,7 +46,6 @@ export default function RecipeReviewCard({name, price, image_url, id, qty}) {
   const objToArr = (obj) => {
     let arr = []
     for (const key of Object.keys(obj)) {
-      console.log(key, obj[key]);
       if (obj[key].qty > 0) arr.push(obj[key])
     }
     return arr

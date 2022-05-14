@@ -18,18 +18,15 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function BasicGrid() {
   let productToShow = useSelector( state => state.company.productToShow)
   let insideCart = useSelector( state => state.company.insideCart)
-  // console.log(productToShow[0])
 
   productToShow.map(getArrayValues);
 
   function getArrayValues(item) {
-    // console.log( item);
     let a = insideCart[item.id]
     if (a) {
       item.qty = insideCart[item.id].qty
     }
   }
-  console.log(productToShow)
 
   return (
     <Box sx={{ flexGrow: 1 }}>
