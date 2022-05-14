@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Flow from '../components/cart/Flow'  
 import ListProducts from '../components/cart/Products'  
 import CustomerInfo from '../components/cart/CustomerInfo'  
+import Address from '../components/cart/Address'  
 
 
 
@@ -18,6 +19,7 @@ function Cart() {
       <Flow></Flow>
       <ListProducts></ListProducts>
       <CustomerInfo></CustomerInfo>
+      <Address></Address>
     </div >
   )
 }
