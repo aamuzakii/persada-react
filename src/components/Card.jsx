@@ -13,7 +13,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DynamicButton from './DynamicButton';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 
-import  {setInsideCart}  from '../store/actions/company'
+import  {setInsideCart, setInsideCartArray}  from '../store/actions/company'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,7 +38,18 @@ export default function RecipeReviewCard({name, price, image_url, id}) {
 
   const childToParent = (qty) => {
     insideCart = { ...insideCart, [name]: {name: name, qty: qty, image_url: image_url, id: id} }
+    let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
+    dispatch(setInsideCartArray(arr))
+  }
+
+  const objToArr = (obj) => {
+    let arr = []
+    for (const key of Object.keys(obj)) {
+      console.log(key, obj[key]);
+      if (obj[key].qty > 0) arr.push(obj[key])
+    }
+    return arr
   }
 
   return (

@@ -71,32 +71,6 @@ export function setProductToShow(input) {
   }
 }
 
-// export function fetchRecommendations() {
-//   return ((dispatch) => {
-//     dispatch(setIsLoading(true))
-//     let url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=MSFT'
-//     fetch(url, {
-//       "method": "GET",
-//       "headers": {
-//         "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
-//         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
-//       }
-//     })
-//     .then( response => {
-//       return response.json()
-//     })
-//     .then( data => {
-//       dispatch(setRecommendations(data.finance.result[0].quotes))
-//     })
-//     .catch( err => {
-//       console.log(err)
-//     })
-//     .finally( () => {
-//       dispatch(setIsLoading(false))
-//     })
-//   })
-// }
-
 export function fetchSearch(query) {
   return dispatch => {
     dispatch(setIsLoading(true))
@@ -134,10 +108,9 @@ export function fetchAllProducts() {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result, `<<12`)
         dispatch(setProductToShow(result))
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.error('error', error));
   })
 }
 
@@ -155,6 +128,6 @@ export function fetchProductsAndCategory() {
       .then(result => {
         dispatch(setProductByCategory(result))
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.error('error', error));
   })
 }
