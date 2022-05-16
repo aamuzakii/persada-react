@@ -4,6 +4,7 @@ import React from 'react';
 import { elevatedContainerLeft, miniGreyFont, title } from './SharedStyle';
 import { useSelector } from 'react-redux'
 import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
+import { useNavigate } from "react-router-dom"
 
 
 function CustomerInfo() {
@@ -15,15 +16,18 @@ function CustomerInfo() {
 
   let totalPriceInCart = useCountTotalPriceInsideCartArray(insideCartArray)
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/cart?step=confirmation');
+  }
   return (
     <footer style={elevatedContainerLeft2} >
       <div>
         <p style={miniGreyFont} >Total Pembayaran</p>
-        <div><Typography variant="overline" display="block">
-        {totalPriceInCart}
-      </Typography></div>
+        <div><Typography variant="overline" display="block">{totalPriceInCart}</Typography></div>
       </div>
-      <div><Button variant="contained" disableElevation sx={{ width: '100%', height: 30 }} >Lanjut</Button></div>
+      <div><Button onClick={handleClick}  variant="contained" disableElevation sx={{ width: '100%', height: 30 }} >Lanjut</Button></div>
     </footer>
   )
 }

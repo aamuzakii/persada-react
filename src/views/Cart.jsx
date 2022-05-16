@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import Flow from '../components/cart/Flow'  
-import ListProducts from '../components/cart/Products'  
-import CustomerInfo from '../components/cart/CustomerInfo'  
-import Address from '../components/cart/Address'  
-import Delivery from '../components/cart/Delivery'  
-import Total from '../components/cart/Total'
+import Address from '../components/cart/Address'
 import Bumper from '../components/cart/Bumper'
+import CustomerInfo from '../components/cart/CustomerInfo'
+import Delivery from '../components/cart/Delivery'
+import Flow from '../components/cart/Flow'
+import ListProducts from '../components/cart/Products'
+import Total from '../components/cart/Total'
 
 
 
 function Cart() {
   let navigate = useNavigate();
+
+  const [isConfirmation, setIsConfirmation] = useState(false)
   
   return (
     <div style={{ width: '100%' }}>

@@ -1,8 +1,13 @@
 import React from 'react'
+import MapContainer from '../components/address/MapContainer'
+import Appbar from '../components/orders/Appbar'
 
 function Address() {
   return (
-    <div>Address</div>
+    <div>
+      <Appbar></Appbar>
+      <MapContainer></MapContainer>
+    </div>
   )
 }
 

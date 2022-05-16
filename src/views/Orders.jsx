@@ -1,7 +1,7 @@
 import React from 'react'
 import ChipsRow from '../components/orders/ChipsRow'
 import EmptyOrder from '../components/orders/EmptyOrder'
-import NavbarOrder from '../components/orders/NavbarOrder'
+import NavbarOrder from '../components/orders/Appbar'
 
 function Orders() {
   return (
