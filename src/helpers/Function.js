@@ -17,8 +17,4 @@ export const countTotalPriceInsideCartArray = (insideCartArray) => {
   return decorated_total
 }
 
-var formatter = new Intl.NumberFormat('id-ID', {
-  style: 'currency',
-  currency: 'IDR',
-  maximumSignificantDigits: 3
-});
+const formatter = new Intl.NumberFormat('id-ID');
