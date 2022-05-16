@@ -15,7 +15,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
-import SideDrawer from '../components/SideDrawer'
+import SideDrawer from './SideDrawer'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

@@ -1,12 +1,10 @@
 import React from 'react'
-import Navbar from '../components/AdvNavbar'
-import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
-import Container from '../components/Container'
-import ShoppingSnackbar from '../components/home/ShoppingSnackbar'  
-import { Box } from '@mui/material';
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux' 
-import  {setIsCartFilled}  from '../store/actions/company'
+import { useDispatch, useSelector } from 'react-redux'
+import Navbar from '../components/home/AdvNavbar'
+import Container from '../components/home/Container'
+import ShoppingSnackbar from '../components/home/ShoppingSnackbar'
+import SwipeableBottomDrawer from '../components/home/SwipeableBottomDrawer'
+import { setIsCartFilled } from '../store/actions/company'
 
 function Home() {
   const dispatch = useDispatch()

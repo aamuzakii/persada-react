@@ -10,11 +10,11 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DynamicButton from './DynamicButton';
+import DynamicButton from '../DynamicButton';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 
-import  {setInsideCart, setInsideCartArray}  from '../store/actions/company'
-import { objToArr } from '../helpers/Function'
+import  {setInsideCart, setInsideCartArray}  from '../../store/actions/company'
+import { objToArr } from '../../helpers/Function'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

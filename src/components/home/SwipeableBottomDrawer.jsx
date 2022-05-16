@@ -7,9 +7,9 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchAllProducts } from '../store/actions/company';
+import { fetchAllProducts } from '../../store/actions/company';
 import BasicStack from './BasicStack';
-import CustomSelect from './home/CustomSelect';
+import CustomSelect from './CustomSelect';
 
 const drawerBleeding = 56;
 
