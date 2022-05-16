@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { elevatedContainerLeft, miniGreyFont, title } from './SharedStyle';
 import { useSelector } from 'react-redux'
+import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 
 
 function CustomerInfo() {
@@ -10,7 +11,9 @@ function CustomerInfo() {
   const title2 = { ...title, margin: 0, padding: 5 }
   const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 90, width: '100vw', backgroundColor: 'white', zIndex: 99, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', boxSizing: 'border-box' }
 
-  let totalPriceInCart = useSelector( state => state.company.totalPriceInCart)
+  let insideCartArray = useSelector( state => state.company.insideCartArray)
+
+  let totalPriceInCart = useCountTotalPriceInsideCartArray(insideCartArray)
 
   return (
     <footer style={elevatedContainerLeft2} >
