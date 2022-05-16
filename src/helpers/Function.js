@@ -9,7 +9,6 @@ export const objToArr = (obj) => {
 export const countTotalPriceInsideCartArray = (insideCartArray) => {
   let total = 0
   insideCartArray.forEach(item => {
-    console.log(item)
     total += item.int_price * item.qty
   })
   let decorated_total = formatter.format(total)
