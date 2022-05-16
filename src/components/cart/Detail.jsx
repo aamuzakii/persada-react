@@ -8,7 +8,7 @@ import { objToArr } from '../../helpers/Function'
 function Detail({id, name, price, image_url, qty, int_price}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
 
-  const insideCart = useSelector( state => state.company.insideCart)
+  let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
 
   const childToParent = (qty) => {
