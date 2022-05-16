@@ -1,6 +1,7 @@
+import { Button } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import React from 'react';
-import { elevatedContainerLeft, title, miniGreyFont } from './SharedStyle';
-import {Button} from '@mui/material';
+import { elevatedContainerLeft, miniGreyFont, title } from './SharedStyle';
 
 
 function CustomerInfo() {
@@ -12,7 +13,9 @@ function CustomerInfo() {
     <footer style={elevatedContainerLeft2} >
       <div>
         <p style={miniGreyFont} >Total Pembayaran</p>
-        <div>Rp. 100.000</div>
+        <div><Typography variant="overline" display="block">
+        Rp. 100.000
+      </Typography></div>
       </div>
       <div><Button variant="contained" disableElevation sx={{ width: '100%', height: 30 }} >Lanjut</Button></div>
     </footer>
