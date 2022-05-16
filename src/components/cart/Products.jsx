@@ -1,5 +1,4 @@
 import React from 'react'
-import DynamicButton from '../DynamicButton';
 import Detail from './Detail';
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
