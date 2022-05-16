@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { objToArr } from '../../helpers/Function';
+import { setInsideCart, setInsideCartArray } from '../../store/actions/company';
 import DynamicButton from '../DynamicButton';
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux' 
-import  {setInsideCart, setInsideCartArray}  from '../../store/actions/company'
-import { objToArr } from '../../helpers/Function'
+import { miniGreyFont } from './SharedStyle';
 
 function Detail({id, name, price, image_url, qty, int_price}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
@@ -24,7 +24,7 @@ function Detail({id, name, price, image_url, qty, int_price}) {
       <div style={{ width: '5rem', height: '5rem', display: 'flex' }} ><img src={image_url} alt="" style={{ maxWidth: '100%', objectFit: 'contain', borderRadius: '20%' }}  /></div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: 15, alignItems: 'center'}} >
         <div>
-          <p style={{  fontSize: '0.9rem' }} >{ name }</p>
+          <p style={ miniGreyFont } >{ name }</p>
           <p style={{ fontWeight: 'bold', fontSize: '0.8rem' }} >{ price }</p>
         </div>
         <div style={{ width: 100 }} ><DynamicButton childToParent={childToParent} qtyFromRedux={qty}></DynamicButton></div>
