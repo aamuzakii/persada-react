@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/AdvNavbar'
 import SwipeableBottomDrawer from '../components/SwipeableBottomDrawer'
 import Container from '../components/Container'
-import ShoppingSnackbar from '../components/ShoppingSnackbar'  
+import ShoppingSnackbar from '../components/home/ShoppingSnackbar'  
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux' 

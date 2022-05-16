@@ -3,8 +3,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { useCountTotalPriceInsideCartArray } from '../helpers/Function';
-import { setTotalPriceInCart } from '../store/actions/company';
+import { useCountTotalPriceInsideCartArray } from '../../helpers/Function';
+import { setTotalPriceInCart } from '../../store/actions/company';
 import './ShoppingSnackbar.css';
 
 

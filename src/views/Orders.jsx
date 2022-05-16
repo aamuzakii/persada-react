@@ -1,5 +1,5 @@
 import React from 'react'
-import ChipsRow from '../components/ChipsRow'
+import ChipsRow from '../components/orders/ChipsRow'
 import EmptyOrder from '../components/EmptyOrder'
 import NavbarOrder from '../components/NavbarOrder'
 

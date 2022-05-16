@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types';
 import { Global } from '@emotion/react';
-import { styled } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { Box } from '@mui/material';
 import { grey } from '@mui/material/colors';
-import {Box} from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import BasicStack from './BasicStack'
-import CustomSelect from './CustomSelect'
-import { useDispatch } from 'react-redux' 
-import  {fetchAllProducts}  from '../store/actions/company'
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchAllProducts } from '../store/actions/company';
+import BasicStack from './BasicStack';
+import CustomSelect from './home/CustomSelect';
 
 const drawerBleeding = 56;
 
