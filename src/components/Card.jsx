@@ -83,7 +83,7 @@ export default function RecipeReviewCard({name, price, image_url, id, qty}) {
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
+            Heat 1/2 cup of the broth in a pot until simmering, add saffron ansdsdsd set
           </Typography>
           <Typography paragraph>
             Heat oil in a (14- to 16-inch) 1/2 cups chicken broth; bring to a boil.
