@@ -12,7 +12,7 @@ function CustomerInfo() {
   }
 
   const title2 = { ...title, margin: 0, padding: 5 }
-  const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 70, width: '100vw' }
+  const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 70, width: '100vw', backgroundColor: 'white', zIndex: 99 }
 
   return (
     <footer style={elevatedContainerLeft2} >
