@@ -1,6 +1,6 @@
 import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_INSIDE_CART_ARRAY } from '../actionTypes'
 
-const BASE_URI = process.env.REACT_APP_BASE_URI || 'http://ec2-3-139-70-62.us-east-2.compute.amazonaws.com'
+const BASE_URI = process.env.REACT_APP_BASE_URI
 
 export function addToFavourite(input) {
   return {

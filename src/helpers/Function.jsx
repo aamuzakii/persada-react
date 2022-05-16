@@ -5,3 +5,20 @@ export const objToArr = (obj) => {
   }
   return arr
 }
+
+export const countTotalPriceInsideCartArray = (insideCartArray) => {
+  let total = 0
+  insideCartArray.forEach(item => {
+    console.log(item)
+    total += item.int_price * item.qty
+  })
+  let decorated_total = formatter.format(total)
+
+  return decorated_total
+}
+
+var formatter = new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR',
+  maximumSignificantDigits: 3
+});

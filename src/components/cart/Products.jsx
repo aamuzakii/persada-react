@@ -30,8 +30,8 @@ function Products() {
       {/* BELOW ARE PRODUCTS */}
       
       {
-        insideCartArray.map(({id, name, price, image_url, qty})=> (
-          <Detail id={id} name={name} price={price} image_url={image_url} key={id} qty={qty}></Detail>
+        insideCartArray.map(({id, name, price, image_url, qty, int_price})=> (
+          <Detail id={id} name={name} price={price} image_url={image_url} key={id} qty={qty} int_price={int_price} ></Detail>
         ))
       }
 

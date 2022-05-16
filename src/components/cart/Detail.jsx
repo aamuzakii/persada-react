@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux'
 import  {setInsideCart, setInsideCartArray}  from '../../store/actions/company'
 import { objToArr } from '../../helpers/Function'
 
-function Detail({id, name, price, image_url, qty}) {
+function Detail({id, name, price, image_url, qty, int_price}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
 
   let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
 
   const childToParent = (qty) => {
-    insideCart = { ...insideCart, [id]: {name: name, qty: qty, image_url: image_url, id: id, price: price} }
+    insideCart = { ...insideCart, [id]: {name: name, qty: qty, image_url: image_url, id: id, price: price, int_price: int_price } }
     let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
     dispatch(setInsideCartArray(arr))

@@ -3,6 +3,8 @@ import './ShoppingSnackbar.css'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate } from "react-router-dom"
+import { useSelector } from 'react-redux'
+import { countTotalPriceInsideCartArray } from '../helpers/Function'
 
 function ShoppingSnackbar() {
   let navigate = useNavigate();
@@ -10,12 +12,13 @@ function ShoppingSnackbar() {
   const handleClick = () => {
     navigate('/cart');
   }
+  let insideCartArray = useSelector( state => state.company.insideCartArray)
 
   return (
     <div className='container' onClick={handleClick} >
       <div className='grouped' >
         <ShoppingCartIcon></ShoppingCartIcon>
-        <div>Rp. 10.000</div>
+        <div>{countTotalPriceInsideCartArray(insideCartArray)}</div>
       </div>
       <div className='grouped'>
         <div>Checkout</div>

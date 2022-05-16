@@ -33,7 +33,7 @@ export default function BasicGrid() {
       <Grid container spacing={2} p={2}>
       {productToShow.map((obj, index) => (
         <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={index} >
-          <Card name={obj.name} price={obj.price} image_url={obj.image_url} id={obj.id} qty={obj.qty} ></Card>
+          <Card name={obj.name} price={obj.price} image_url={obj.image_url} id={obj.id} qty={obj.qty} int_price={obj.int_price} ></Card>
           {/* <p>{obj.id}</p> */}
         </Grid>
       ))}
