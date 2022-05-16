@@ -16,20 +16,6 @@ export function setProductByCategory(input) {
   }
 }
 
-// export function setRecommendations(input) {
-//   return {
-//     type: SET_RECOMMENDATIONS,
-//     payload: input
-//   }
-// }
-
-// export function setCurrentCompany(input) {
-//   return {
-//     type: SET_CURRENT_COMPANY,
-//     payload: input
-//   }
-// }
-
 export function setInsideCart(input) {
   return {
     type: SET_INSIDE_CART,
