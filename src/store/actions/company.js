@@ -1,4 +1,5 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART } from '../actionTypes'
+import { countTotalPriceInsideCartArray } from '../../helpers/Function'
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
 
@@ -19,6 +20,13 @@ export function setProductByCategory(input) {
 export function setInsideCart(input) {
   return {
     type: SET_INSIDE_CART,
+    payload: input
+  }
+}
+
+export function setTotalPriceInCart(input) {
+  return {
+    type: SET_TOTAL_PRICE_IN_CART,
     payload: input
   }
 }

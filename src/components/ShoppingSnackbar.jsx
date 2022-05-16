@@ -1,10 +1,13 @@
-import React from 'react'
-import './ShoppingSnackbar.css'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useNavigate } from "react-router-dom"
-import { useSelector } from 'react-redux'
-import { countTotalPriceInsideCartArray } from '../helpers/Function'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { countTotalPriceInsideCartArray } from '../helpers/Function';
+import { setTotalPriceInCart } from '../store/actions/company';
+import './ShoppingSnackbar.css';
+
+
 
 function ShoppingSnackbar() {
   let navigate = useNavigate();
@@ -14,11 +17,17 @@ function ShoppingSnackbar() {
   }
   let insideCartArray = useSelector( state => state.company.insideCartArray)
 
+  let totalPrice =countTotalPriceInsideCartArray(insideCartArray)
+
+  const dispatch = useDispatch()
+
+  dispatch(setTotalPriceInCart(totalPrice))
+
   return (
     <div className='container' onClick={handleClick} >
       <div className='grouped' >
         <ShoppingCartIcon></ShoppingCartIcon>
-        <div>{countTotalPriceInsideCartArray(insideCartArray)}</div>
+        <div>{totalPrice}</div>
       </div>
       <div className='grouped'>
         <div>Checkout</div>
