@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_INSIDE_CART_ARRAY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT } from '../actionTypes'
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
 
@@ -54,31 +54,6 @@ export function setProductToShow(input) {
   return {
     type: SET_PRODUCT_TO_SHOW,
     payload: input
-  }
-}
-
-export function fetchSearch(query) {
-  return dispatch => {
-    dispatch(setIsLoading(true))
-    fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/auto-complete?query=${query}&region=US`, {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY,
-        "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
-      }
-    })
-    .then(response => {
-      return response.json()
-    })
-    .then( data => {
-      dispatch(setSearchResult(data.ResultSet.Result))
-    })
-    .catch(err => {
-      console.error(err);
-    })
-    .finally( () => {
-      dispatch(setIsLoading(false))
-    })
   }
 }
 

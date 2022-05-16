@@ -5,7 +5,6 @@ const initialState = {
   recommendations: [],
   searchResult : [],
   isLoading: false,
-  currentCompany: {},
   insideCart: {},
   insideCartArray: [],
   isCartFilled: true,
@@ -25,8 +24,6 @@ function companyReducer (state = initialState, action) {
         return { ...state, searchResult : payload }
       case SET_IS_LOADING:
         return { ...state, isLoading : payload }
-      case SET_CURRENT_COMPANY:
-        return { ...state, currentCompany : payload }
       case SET_IS_CART_FILLED:
         return { ...state, isCartFilled : payload }
       case SET_INSIDE_CART:
