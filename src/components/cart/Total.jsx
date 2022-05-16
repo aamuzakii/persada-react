@@ -7,7 +7,7 @@ import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 import { useNavigate } from "react-router-dom"
 
 
-function CustomerInfo() {
+function CustomerInfo({setIsConfirmation}) {
 
   const title2 = { ...title, margin: 0, padding: 5 }
   const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 90, width: '100vw', backgroundColor: 'white', zIndex: 99, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', boxSizing: 'border-box' }
@@ -19,7 +19,7 @@ function CustomerInfo() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/cart?step=confirmation');
+    setIsConfirmation(true)
   }
   return (
     <footer style={elevatedContainerLeft2} >

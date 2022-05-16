@@ -14,18 +14,33 @@ function Cart() {
   let navigate = useNavigate();
 
   const [isConfirmation, setIsConfirmation] = useState(false)
+
+  console.log(isConfirmation)
   
   return (
     <div style={{ width: '100%' }}>
-      <Flow></Flow>
-      <ListProducts></ListProducts>
-      <CustomerInfo></CustomerInfo>
-      <Address></Address>
-      <Delivery></Delivery>
-      <Total></Total>
-      <Bumper></Bumper>
+      { 
+        (!isConfirmation)
+        ? <><Flow></Flow>
+        <ListProducts></ListProducts>
+        <CustomerInfo></CustomerInfo>
+        <Address></Address>
+        <Delivery></Delivery>
+        <Total setIsConfirmation={setIsConfirmation} ></Total>
+        <Bumper></Bumper></>
+        : <ConfirmationPart></ConfirmationPart>
+      }
+
     </div >
   )
 }
 
 export default Cart
+
+function ConfirmationPart() {
+  return <><Flow></Flow>
+  <ListProducts></ListProducts>
+  <Delivery></Delivery>
+  <Total ></Total>
+  <Bumper></Bumper></>
+}
