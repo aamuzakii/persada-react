@@ -5,6 +5,8 @@ import ListProducts from '../components/cart/Products'
 import CustomerInfo from '../components/cart/CustomerInfo'  
 import Address from '../components/cart/Address'  
 import Delivery from '../components/cart/Delivery'  
+import Total from '../components/cart/Total'
+import Bumper from '../components/cart/Bumper'
 
 
 
@@ -18,6 +20,8 @@ function Cart() {
       <CustomerInfo></CustomerInfo>
       <Address></Address>
       <Delivery></Delivery>
+      <Total></Total>
+      <Bumper></Bumper>
     </div >
   )
 }
