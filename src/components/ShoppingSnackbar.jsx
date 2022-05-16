@@ -3,7 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { countTotalPriceInsideCartArray } from '../helpers/Function';
+import { useCountTotalPriceInsideCartArray } from '../helpers/Function';
 import { setTotalPriceInCart } from '../store/actions/company';
 import './ShoppingSnackbar.css';
 
@@ -17,7 +17,7 @@ function ShoppingSnackbar() {
   }
   let insideCartArray = useSelector( state => state.company.insideCartArray)
 
-  let totalPrice =countTotalPriceInsideCartArray(insideCartArray)
+  let totalPrice =useCountTotalPriceInsideCartArray(insideCartArray)
 
   const dispatch = useDispatch()
 
