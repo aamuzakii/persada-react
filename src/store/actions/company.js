@@ -68,7 +68,7 @@ export function fetchAllProducts() {
   return ((dispatch) => {
     let url = `${BASE_URI}/products`
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
@@ -86,9 +86,31 @@ export function fetchProductsAndCategory() {
   return ((dispatch) => {
     let url = `${BASE_URI}/products_and_category`
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       redirect: 'follow'
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        dispatch(setProductByCategory(result))
+      })
+      .catch(error => console.error('error', error));
+  })
+}
+
+export function postOrder(payload) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/orders`
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+
+    let requestOptions = {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify(payload)
     };
     
     fetch(url, requestOptions)

@@ -2,14 +2,15 @@ import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import { elevatedContainerLeft, miniGreyFont, title } from './SharedStyle';
-import { useSelector } from 'react-redux'
 import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 import { useNavigate } from "react-router-dom"
-
+import { useDispatch, useSelector } from 'react-redux';
+import { postOrder } from '../../store/actions/company';
 
 function CustomerInfo({setIsConfirmation}) {
 
-  const title2 = { ...title, margin: 0, padding: 5 }
+  const dispatch = useDispatch()
+
   const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 90, width: '100vw', backgroundColor: 'white', zIndex: 99, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', boxSizing: 'border-box' }
 
   let insideCartArray = useSelector( state => state.company.insideCartArray)
@@ -18,8 +19,27 @@ function CustomerInfo({setIsConfirmation}) {
 
   const navigate = useNavigate();
 
+  let orderInfo = {
+    additional_info: 'testing bro',
+    order_note: 'testing bro',
+    delivery_note: 'testing bro',
+    delivery_date: 'testing bro',
+    order_number: 'testing bro',
+    status: 'testing bro',
+    delivery_cost: 'testing bro',
+    subtotal: 'testing bro',
+    total: 'testing bro',
+  }
+
+  let order_aggregate = {
+    information: orderInfo,
+    items: insideCartArray
+  }
+
+
   const handleClick = () => {
-    setIsConfirmation(true)
+    // setIsConfirmation(true)
+    dispatch(postOrder(order_aggregate))
   }
   return (
     <footer style={elevatedContainerLeft2} >
@@ -33,5 +53,3 @@ function CustomerInfo({setIsConfirmation}) {
 }
 
 export default CustomerInfo
-
-// <footer style={{color: "gray", position: "fixed", bottom: 0}}>
