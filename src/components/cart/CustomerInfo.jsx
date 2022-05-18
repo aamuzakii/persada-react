@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { title, elevatedContainerLeft } from './SharedStyle'
-import { margin } from '@mui/system';
+import { useDispatch } from 'react-redux';
+import { setCustomerInfo } from '../../store/actions/company';
 
 
 function CustomerInfo() {
+  
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const dispatch = useDispatch()
+  dispatch(setCustomerInfo({ name, phone }))
 
   const input = {
     margin: 10,
@@ -18,7 +25,8 @@ function CustomerInfo() {
   return (
     <div style={elevatedContainerLeft} >
       <p style={title2} >Info Pelanggan</p>
-      <TextField id="outlined-basic" label="Nama" variant="outlined" style={input} size="small" />
+      <TextField value={name} onInput={e => setName(e.target.value)} id="outlined-basic" label="Nama" variant="outlined" style={input} size="small" />
+
       <TextField
         InputProps={{
           startAdornment: <InputAdornment position="start">+62</InputAdornment>,
@@ -28,6 +36,8 @@ function CustomerInfo() {
         variant="outlined"
         style={input}
         size="small"
+        value={phone}
+        onInput={e => setPhone(e.target.value)}
       />
     </div>
   )

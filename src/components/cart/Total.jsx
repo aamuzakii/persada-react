@@ -14,6 +14,7 @@ function CustomerInfo({setIsConfirmation}) {
   const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 90, width: '100vw', backgroundColor: 'white', zIndex: 99, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', boxSizing: 'border-box' }
 
   let insideCartArray = useSelector( state => state.company.insideCartArray)
+  let customerInfo = useSelector( state => state.company.customerInfo)
 
   let totalPriceInCart = useCountTotalPriceInsideCartArray(insideCartArray)
 
@@ -25,15 +26,16 @@ function CustomerInfo({setIsConfirmation}) {
     delivery_note: 'testing bro',
     delivery_date: 'testing bro',
     order_number: 'testing bro',
-    status: 'testing bro',
-    delivery_cost: 'testing bro',
+    status: 'unpaid',
+    delivery_cost: 'self_define',
     subtotal: 'testing bro',
     total: 'testing bro',
   }
 
   let order_aggregate = {
     information: orderInfo,
-    items: insideCartArray
+    items: insideCartArray,
+    customer: customerInfo
   }
 
 
