@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { objToArr } from '../../helpers/Function';
 import { setInsideCart, setInsideCartArray } from '../../store/actions/company';
 import DynamicButton from '../DynamicButton';
-import { miniGreyFont } from './SharedStyle';
+import { miniGreyFont } from '../SharedStyle';
 
 function Detail({id, name, price, image_url, qty, int_price}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }

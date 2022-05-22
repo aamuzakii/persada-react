@@ -1,5 +1,5 @@
 import React from 'react'
-import { title } from './SharedStyle'
+import { title } from '../SharedStyle'
 
 function Flow() {
   return (

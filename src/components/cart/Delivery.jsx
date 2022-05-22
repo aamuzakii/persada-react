@@ -1,5 +1,5 @@
 import React from 'react'
-import { subTitle, elevatedContainerLeft, miniGreyFont } from './SharedStyle'
+import { subTitle, elevatedContainerLeft, miniGreyFont } from '../SharedStyle'
 
 
 

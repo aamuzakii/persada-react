@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { elevatedContainerLeft, miniGreyFont, title } from './SharedStyle';
+import { elevatedContainerLeft, miniGreyFont, title } from '../SharedStyle';
 import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';

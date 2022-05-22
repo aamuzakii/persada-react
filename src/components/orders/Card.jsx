@@ -5,7 +5,7 @@ function Card() {
     <div style={{ boxSizing: 'border-box', cursor: 'pointer', padding: 11, boxShadow: 'rgb(0 0 0 / 25%) 3px 6px 12px -4px', display: 'flex', margin: 20, borderRadius: 10, flexDirection: 'column', justifyContent: 'space-evenly', border: '1px solid rgb(238, 238, 238)' }} >
       <div style={{ display: 'flex', justifyContent: 'space-between' }} >
         <div>
-          <p style={{ fontFamily: 'Lato' }} >Camel Cow</p>
+          <p style={{ fontSize: 16, letterSpacing: '0.5', textOverflow: 'ellipsis' }} >Camel Cow</p>
           <p>18 May  2022, 05:42  </p>
         </div>
         <div style={{ backgroundColor: 'rgb(242, 244, 247)', padding: 3, color: '#1976d2', borderRadius: 4, maxHeight: 20, textAlign: 'center', display: 'flex', alignItems: 'center' }} >

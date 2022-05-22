@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import { title, elevatedContainerLeft } from './SharedStyle'
+import { title, elevatedContainerLeft } from '../SharedStyle'
 import { useDispatch } from 'react-redux';
 import { setCustomerInfo } from '../../store/actions/company';
 

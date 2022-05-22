@@ -1,5 +1,5 @@
 import React from 'react'
-// import { elevatedContainerLeft } from './SharedStyle'
+// import { elevatedContainerLeft } from '../SharedStyle'
 // please choose one of these elevatedContainerLeft, consider the bumper styling!
 
 const elevatedContainerLeft = { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 12 }
