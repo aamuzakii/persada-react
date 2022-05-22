@@ -17,7 +17,6 @@ function Orders() {
     dispatch(fetchOrderByStatus(status))
   }, [])
   
-  
 
   return (
     <>
@@ -27,18 +26,27 @@ function Orders() {
         <div style={{ fontWeight: 'bold', color: 'rgb(102, 102, 102)' }} >Pesanan Saya</div>
       </div>
         <ChipsRow></ChipsRow>
-        
-        { 
-          (orders.length)
-            ? orders.map((order, i) => (
-              <Card key={i} order={order} ></Card>
-              )) 
-            : <EmptyOrder></EmptyOrder>
-        }
-        
+        <BottomPart orders={orders} ></BottomPart>
     </>
-    
   )
 }
 
-export default Orders
+function BottomPart({orders}) {
+  if (orders == null) {
+    return null
+  } else if (orders.length === 0) {
+    return <EmptyOrder></EmptyOrder>
+  } else {
+    return (
+      <>
+        {
+          orders.map((order, i) => (
+            <Card key={i} order={order} ></Card>
+          )) 
+        }
+      </>
+    )
+  }
+}
+
+export default Orders 

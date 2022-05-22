@@ -12,7 +12,7 @@ const initialState = {
   productToShow: [],
   productByCategory: {},
   customerInfo: {},
-  orderByType: []
+  orderByType: null
 }
 
 function companyReducer (state = initialState, action) {
