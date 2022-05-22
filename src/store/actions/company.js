@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE } from '../actionTypes'
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
 
@@ -72,6 +72,13 @@ export function setProductToShow(input) {
   }
 }
 
+export function setOrderByType(input) {
+  return {
+    type: SET_ORDER_BY_TYPE,
+    payload: input
+  }
+}
+
 export function fetchAllProducts() {
   return ((dispatch) => {
     let url = `${BASE_URI}/products`
@@ -107,6 +114,25 @@ export function fetchProductsAndCategory() {
       .catch(error => console.error('error', error));
   })
 }
+
+export function fetchOrderByStatus(status) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/orders/index_by_status?status=testing bro`
+  
+    let requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        dispatch(setOrderByType(result))
+      })
+      .catch(error => console.error('error', error));
+  })
+} 
 
 export function postOrder(payload) {
   return ((dispatch) => {

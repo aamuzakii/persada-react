@@ -10,7 +10,7 @@ function Card() {
           <p style={{ ...miniGreyFont, marginTop: 3}} >18 May  2022, 05:42  </p>
         </div>
         <div style={{ backgroundColor: 'rgb(242, 244, 247)', padding: 3, color: '#1976d2', borderRadius: 4, maxHeight: 20, textAlign: 'center', display: 'flex', alignItems: 'center' }} >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75 1.6C4.351 1.6 1.6 4.343 1.6 7.72c0 3.378 2.751 6.121 6.15 6.121 3.399 0 6.15-2.743 6.15-6.12 0-3.378-2.751-6.121-6.15-6.121zM.4 7.72C.4 3.675 3.693.4 7.75.4c4.057 0 7.35 3.275 7.35 7.32 0 4.046-3.293 7.321-7.35 7.321-4.057 0-7.35-3.275-7.35-7.32zm7.35-4.632a.6.6 0 0 1 .6.6v3.66l2.367 1.18a.6.6 0 0 1-.534 1.074l-2.7-1.344a.6.6 0 0 1-.333-.538V3.688a.6.6 0 0 1 .6-.6z" fill="#374DBA"></path></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M7.75 1.6C4.351 1.6 1.6 4.343 1.6 7.72c0 3.378 2.751 6.121 6.15 6.121 3.399 0 6.15-2.743 6.15-6.12 0-3.378-2.751-6.121-6.15-6.121zM.4 7.72C.4 3.675 3.693.4 7.75.4c4.057 0 7.35 3.275 7.35 7.32 0 4.046-3.293 7.321-7.35 7.321-4.057 0-7.35-3.275-7.35-7.32zm7.35-4.632a.6.6 0 0 1 .6.6v3.66l2.367 1.18a.6.6 0 0 1-.534 1.074l-2.7-1.344a.6.6 0 0 1-.333-.538V3.688a.6.6 0 0 1 .6-.6z" fill="#374DBA"></path></svg>
           <p style={{ marginLeft: 4 }} >Diproses</p>
         </div>
       </div>
