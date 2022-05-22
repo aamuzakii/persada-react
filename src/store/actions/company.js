@@ -117,7 +117,7 @@ export function fetchProductsAndCategory() {
 
 export function fetchOrderByStatus(status) {
   return ((dispatch) => {
-    let url = `${BASE_URI}/orders/index_by_status?status=testing bro`
+    let url = `${BASE_URI}/orders/index_by_status?status=${status}`
   
     let requestOptions = {
       method: 'GET',

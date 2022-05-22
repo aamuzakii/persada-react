@@ -1,7 +1,8 @@
 import React from 'react'
 import { title, miniBoldFont, miniGreyFont } from '../SharedStyle'
 
-function Card() {
+function Card({order}) {
+  let firstItem = order.products_ordereds[0]
   return (
     <div style={{ boxSizing: 'border-box', cursor: 'pointer', padding: 11, boxShadow: 'rgb(0 0 0 / 25%) 3px 6px 12px -4px', display: 'flex', margin: 20, borderRadius: 10, flexDirection: 'column', justifyContent: 'space-evenly', border: '1px solid rgb(238, 238, 238)' }} >
       <div style={{ display: 'flex', justifyContent: 'space-between' }} >
