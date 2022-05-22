@@ -46,8 +46,8 @@ function CustomerInfo({setIsConfirmation}) {
   return (
     <footer style={elevatedContainerLeft2} >
       <div>
-        <p style={miniGreyFont} >Total Pembayaran</p>
-        <div><Typography variant="overline" display="block">{totalPriceInCart}</Typography></div>
+        <p style={{ ...miniGreyFont, marginBottom: 5}} >Total Pembayaran</p>
+        <p style={{ fontWeight: 'bold', fontSize: 16, lineHeight: '150%', letterSpacing: 0.5, color: 'rgb(92, 183, 135)', margin: 0 }} >{totalPriceInCart}</p>
       </div>
       <div><Button onClick={handleClick}  variant="contained" disableElevation sx={{ width: '100%', height: 30 }} >Lanjut</Button></div>
     </footer>
