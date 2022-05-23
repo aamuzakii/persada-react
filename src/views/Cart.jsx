@@ -6,6 +6,8 @@ import CustomerInfo from '../components/cart/CustomerInfo'
 import Delivery from '../components/cart/Delivery'
 import Flow from '../components/cart/Flow'
 import ListProducts from '../components/cart/Products'
+import ListProductReadOnly from '../components/cart/ListProductReadOnly'
+import PurchaseSummary from '../components/cart/PurchaseSummary'
 import Total from '../components/cart/Total'
 
 
@@ -39,8 +41,9 @@ export default Cart
 
 function ConfirmationPart() {
   return <><Flow></Flow>
-  <ListProducts></ListProducts>
+  <ListProductReadOnly></ListProductReadOnly>
   <Delivery></Delivery>
+  <PurchaseSummary></PurchaseSummary>
   <Total ></Total>
   <Bumper></Bumper></>
 }

@@ -40,8 +40,8 @@ function CustomerInfo({setIsConfirmation}) {
 
 
   const handleClick = () => {
-    // setIsConfirmation(true)
-    dispatch(postOrder(order_aggregate))
+    setIsConfirmation(true)
+    // dispatch(postOrder(order_aggregate))
   }
   return (
     <footer style={elevatedContainerLeft2} >
