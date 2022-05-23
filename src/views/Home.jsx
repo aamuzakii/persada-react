@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../components/home/AdvNavbar'
 import Container from '../components/home/Container'
@@ -15,7 +15,10 @@ function Home() {
     return previous + insideCart[key].qty;
   }, 0);
 
-  dispatch(setIsCartFilled(totalItemInCart))
+  useEffect(() => {
+    dispatch(setIsCartFilled(totalItemInCart))
+  }, [])
+  
 
 
   return (
