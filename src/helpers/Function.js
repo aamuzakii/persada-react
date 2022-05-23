@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux' 
+import { useState, useEffect } from 'react'
 import { setTotalPriceInCart } from '../store/actions/company';
 
 export const objToArr = (obj) => {
@@ -16,7 +17,11 @@ export const useCountTotalPriceInsideCartArray = (insideCartArray) => {
   })
   let decorated_total = formatter.format(total)
   const dispatch = useDispatch()
-  dispatch(setTotalPriceInCart(decorated_total))
+
+  useEffect(() => {
+    dispatch(setTotalPriceInCart(decorated_total))
+  }, [])
+  
 
   return `Rp. ${decorated_total}`
 }

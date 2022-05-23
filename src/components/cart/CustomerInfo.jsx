@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { title, elevatedContainerLeft } from '../SharedStyle'
@@ -12,7 +12,11 @@ function CustomerInfo() {
   const [phone, setPhone] = useState('')
 
   const dispatch = useDispatch()
-  dispatch(setCustomerInfo({ name, phone }))
+
+  useEffect(() => {
+    dispatch(setCustomerInfo({ name, phone }))
+  }, [])
+  
 
   const input = {
     margin: 10,
