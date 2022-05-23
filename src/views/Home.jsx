@@ -17,7 +17,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(setIsCartFilled(totalItemInCart))
-  }, [])
+  }, [insideCart])
   
 
 

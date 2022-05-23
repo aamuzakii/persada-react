@@ -1,6 +1,6 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { useCountTotalPriceInsideCartArray } from '../../helpers/Function';
@@ -17,11 +17,15 @@ function ShoppingSnackbar() {
   }
   let insideCartArray = useSelector( state => state.company.insideCartArray)
 
-  let totalPrice =useCountTotalPriceInsideCartArray(insideCartArray)
+  let totalPrice = useCountTotalPriceInsideCartArray(insideCartArray)
 
   const dispatch = useDispatch()
 
-  dispatch(setTotalPriceInCart(totalPrice))
+  useEffect(() => {
+    dispatch(setTotalPriceInCart(totalPrice))
+  }, [totalPrice])
+  
+
 
   return (
     <div className='container' onClick={handleClick} >
