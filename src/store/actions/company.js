@@ -146,11 +146,13 @@ export function postOrder(payload) {
       headers: header,
       body: JSON.stringify(payload)
     };
+    console.log(payload)
     
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        dispatch(setProductByCategory(result))
+        console.log(result)
+        // dispatch(setProductByCategory(result))
       })
       .catch(error => console.error('error', error));
   })

@@ -30,7 +30,7 @@ function Cart() {
         <Delivery></Delivery>
         <Total setIsConfirmation={setIsConfirmation} ></Total>
         <Bumper></Bumper></>
-        : <ConfirmationPart></ConfirmationPart>
+        : <ConfirmationPart isConfirmation={isConfirmation} ></ConfirmationPart>
       }
 
     </div >
@@ -39,11 +39,11 @@ function Cart() {
 
 export default Cart
 
-function ConfirmationPart() {
+function ConfirmationPart({isConfirmation}) {
   return <><Flow></Flow>
   <ListProductReadOnly></ListProductReadOnly>
   <Delivery></Delivery>
   <PurchaseSummary></PurchaseSummary>
-  <Total ></Total>
+  <Total isConfirmation={isConfirmation} ></Total>
   <Bumper></Bumper></>
 }

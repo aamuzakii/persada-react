@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { postOrder } from '../../store/actions/company';
 
-function CustomerInfo({setIsConfirmation}) {
+function CustomerInfo({setIsConfirmation, isConfirmation}) {
 
   const dispatch = useDispatch()
 
@@ -40,8 +40,11 @@ function CustomerInfo({setIsConfirmation}) {
 
 
   const handleClick = () => {
-    setIsConfirmation(true)
-    // dispatch(postOrder(order_aggregate))
+    if (isConfirmation) {
+      dispatch(postOrder(order_aggregate))
+    } else {
+      setIsConfirmation(true)
+    }
   }
   return (
     <footer style={elevatedContainerLeft2} >
