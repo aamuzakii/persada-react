@@ -5,8 +5,19 @@ import NavbarOrder from '../components/orders/Appbar'
 import Card from '../components/orders/Card'
 import {fetchOrderByStatus} from '../store/actions/company'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom"
 
 function Orders() {
+
+  // let navigate = useNavigate();
+
+  // let LoggedIn = true
+
+  // useEffect(() => {
+  //   if (LoggedIn){
+  //       return navigate("/asas");
+  //   }
+  // },[LoggedIn]);
 
   const dispatch = useDispatch()
   let orders = useSelector( state => state.company.orderByType)
