@@ -26,7 +26,7 @@ function Delivery() {
         id="outlined-basic"
         label="Nomor HP"
         variant="outlined"
-        // style={input}
+        style={{ marginRight: 10 }}
         size="small"
         value={phone}
         onInput={e => setPhone(e.target.value)}
