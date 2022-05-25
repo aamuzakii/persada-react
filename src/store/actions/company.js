@@ -1,4 +1,5 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE } from '../actionTypes'
+import Cookies from 'universal-cookie';
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
 
@@ -79,13 +80,21 @@ export function setOrderByType(input) {
   }
 }
 
+export function setCookie(input) {
+  return {
+    type: SET_COOKIE,
+    payload: input
+  }
+}
+
 export function fetchAllProducts() {
   return ((dispatch) => {
     let url = `${BASE_URI}/products`
 
     let requestOptions = {
       method: 'GET',
-      redirect: 'follow'
+      redirect: 'follow',
+      credentials: 'include'
     };
     
     fetch(url, requestOptions)
@@ -153,6 +162,32 @@ export function postOrder(payload) {
       .then(result => {
         console.log(result)
         // dispatch(setProductByCategory(result))
+      })
+      .catch(error => console.error('error', error));
+  })
+}
+
+export function postOTP(payload) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/authentications/post_otp`
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+
+    let requestOptions = {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify(payload)
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result.token,`<bwt`)
+        const cookies = new Cookies();
+        cookies.set('token', result.token, { path: '/' });
+        // dispatch(setCookie(result))
+
       })
       .catch(error => console.error('error', error));
   })
