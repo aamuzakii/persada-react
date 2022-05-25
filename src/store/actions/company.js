@@ -199,7 +199,6 @@ export function requestOTP(payload) {
 
     let header = new Headers();
     header.append("Content-Type", "application/json");
-    console.log(111)
 
     let requestOptions = {
       method: 'POST',
@@ -207,13 +206,14 @@ export function requestOTP(payload) {
       body: JSON.stringify(payload)
     };
     
-    fetch(url, requestOptions)
+    return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log(result.token,`OTP`)
         if (result.token) {
           const cookies = new Cookies();
           cookies.set('token', result.token, { path: '/' });
+          dispatch(setCookie(result.token))
         }
       })
       .catch(error => console.error('error', error));

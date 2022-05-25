@@ -5,14 +5,22 @@ import InputAdornment from '@mui/material/InputAdornment';
 import {Button} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { postOTP, requestOTP } from '../../store/actions/company';
+import { useNavigate } from "react-router-dom"
+import Cookies from 'universal-cookie';
 
 function Delivery() {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [phone, setPhone] = useState('')
 
-  const handleSubmit = () => {dispatch(requestOTP({ phone }))}
+  const handleSubmit = async () => {
+    await dispatch(requestOTP({ phone }))
+    const cookies = new Cookies();
+    let token = cookies.get('token')
+    if (token) navigate("/")
+  }
 
   return (
     <div style={ elevatedContainerLeft } >
