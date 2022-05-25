@@ -25,8 +25,6 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
     order_note: 'testing bro',
     delivery_note: 'testing bro',
     delivery_date: 'testing bro',
-    order_number: 'testing bro',
-    status: 'unpaid',
     delivery_cost: 'self_define',
     subtotal: 'testing bro',
     total: 'testing bro',

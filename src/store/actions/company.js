@@ -153,7 +153,8 @@ export function postOrder(payload) {
     let requestOptions = {
       method: 'POST',
       headers: header,
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      credentials: 'include'
     };
     console.log(payload)
     

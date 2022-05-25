@@ -9,6 +9,7 @@ import ListProducts from '../components/cart/Products'
 import ListProductReadOnly from '../components/cart/ListProductReadOnly'
 import PurchaseSummary from '../components/cart/PurchaseSummary'
 import Total from '../components/cart/Total'
+import SimpleHeader from '../components/SimpleHeader'
 
 
 
@@ -23,13 +24,16 @@ function Cart() {
     <div style={{ width: '100%' }}>
       { 
         (!isConfirmation)
-        ? <><Flow></Flow>
-        <ListProducts></ListProducts>
-        <CustomerInfo></CustomerInfo>
-        <Address></Address>
-        <Delivery></Delivery>
-        <Total setIsConfirmation={setIsConfirmation} ></Total>
-        <Bumper></Bumper></>
+        ? <>
+            <SimpleHeader></SimpleHeader>
+            <Flow></Flow>
+            <ListProducts></ListProducts>
+            <CustomerInfo></CustomerInfo>
+            <Address></Address>
+            <Delivery></Delivery>
+            <Total setIsConfirmation={setIsConfirmation} ></Total>
+            <Bumper></Bumper>
+          </>
         : <ConfirmationPart isConfirmation={isConfirmation} ></ConfirmationPart>
       }
 
@@ -40,10 +44,15 @@ function Cart() {
 export default Cart
 
 function ConfirmationPart({isConfirmation}) {
-  return <><Flow></Flow>
-  <ListProductReadOnly></ListProductReadOnly>
-  <Delivery></Delivery>
-  <PurchaseSummary></PurchaseSummary>
-  <Total isConfirmation={isConfirmation} ></Total>
-  <Bumper></Bumper></>
+  return (
+  <>
+    <SimpleHeader></SimpleHeader>
+    <Flow></Flow>
+    <ListProductReadOnly></ListProductReadOnly>
+    <Delivery></Delivery>
+    <PurchaseSummary></PurchaseSummary>
+    <Total isConfirmation={isConfirmation} ></Total>
+    <Bumper></Bumper>
+  </>
+  )
 }
