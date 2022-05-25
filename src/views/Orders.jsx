@@ -6,18 +6,19 @@ import Card from '../components/orders/Card'
 import {fetchOrderByStatus} from '../store/actions/company'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
+import Cookies from 'universal-cookie';
 
 function Orders() {
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
-  // let LoggedIn = true
-
-  // useEffect(() => {
-  //   if (LoggedIn){
-  //       return navigate("/asas");
-  //   }
-  // },[LoggedIn]);
+  useEffect(() => {
+    const cookies = new Cookies();
+    let token = cookies.get('token')
+    if (!token){
+        return navigate("/login");
+    }
+  },[]);
 
   const dispatch = useDispatch()
   let orders = useSelector( state => state.company.orderByType)

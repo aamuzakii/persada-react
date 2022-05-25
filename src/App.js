@@ -5,6 +5,7 @@ import Home from './views/Home'
 import Orders from './views/Orders'
 import Cart from './views/Cart'
 import Address from './views/Address'
+import Login from './views/Login'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="orders" element={<Orders />} />
         <Route path="cart" element={<Cart />} />
         <Route path="address" element={<Address />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </div>
   );

@@ -192,3 +192,30 @@ export function postOTP(payload) {
       .catch(error => console.error('error', error));
   })
 }
+
+export function requestOTP(payload) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/authentications/request_otp`
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+    console.log(111)
+
+    let requestOptions = {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify(payload)
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        console.log(result.token,`OTP`)
+        if (result.token) {
+          const cookies = new Cookies();
+          cookies.set('token', result.token, { path: '/' });
+        }
+      })
+      .catch(error => console.error('error', error));
+  })
+}

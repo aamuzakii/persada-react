@@ -1,10 +1,10 @@
 import React from 'react'
-import Login from '../components/login/Delivery'
+import Input from '../components/login/Input'
 
 function Login() {
   return (
     <div>
-      <Delivery></Delivery>
+      <Input/>
     </div>
   )
 }
