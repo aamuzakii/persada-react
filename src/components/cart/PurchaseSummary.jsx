@@ -7,7 +7,7 @@ function PurchaseSummary() {
   return (
     <div style={ elevatedContainerLeft } >
       <p style={ subTitle } >Detail Pembayaran</p>
-      <p style={ miniGreyFont } >Subtotal</p>
+      <p style={ miniGreyFont } >Subtotal:</p>
     </div>
   )
 }
