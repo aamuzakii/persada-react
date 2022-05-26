@@ -1,4 +1,7 @@
 import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const initialState = {
   favourites : [],
@@ -6,8 +9,7 @@ const initialState = {
   searchResult : [],
   isLoading: false,
 
-  insideCart: {},
-  insideCartArray: [],
+  insideCart: cookies.get('cart'),
   totalPriceInCart: 0,
   isCartFilled: true,
 

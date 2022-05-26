@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTotalPriceInCart } from '../store/actions/company';
 import { setInsideCart } from '../store/actions/company';
+import Cookies from 'universal-cookie';
 
 export const objToArr = (obj) => {
   let arr = []
@@ -30,6 +31,8 @@ const formatter = new Intl.NumberFormat('id-ID');
 
 export const integerToRupiah = int => `Rp. ${formatter.format(int)}`
 
-export const SetCartLocalAndRedux = (arr, dispatch) => {
-  dispatch(setInsideCart(arr))
+export const SetCartLocalAndRedux = (obj, dispatch) => {
+  const cookies = new Cookies();
+  cookies.set('cart', obj, { path: '/' });
+  dispatch(setInsideCart(obj))
 }
