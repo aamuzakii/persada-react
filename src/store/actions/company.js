@@ -96,11 +96,16 @@ export function fetchAllProducts() {
       redirect: 'follow',
       credentials: 'include'
     };
+
+    dispatch(setIsLoading(true))
     
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         dispatch(setProductToShow(result))
+      })
+      .finally(()=> {
+        dispatch(setIsLoading(false))
       })
       .catch(error => console.error('error', error));
   })
@@ -132,11 +137,16 @@ export function fetchOrderByStatus(status) {
       method: 'GET',
       redirect: 'follow'
     };
+
+    dispatch(setIsLoading(true))
     
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         dispatch(setOrderByType(result))
+      })
+      .finally(()=> {
+        dispatch(setIsLoading(false))
       })
       .catch(error => console.error('error', error));
   })

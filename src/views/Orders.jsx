@@ -7,6 +7,7 @@ import {fetchOrderByStatus} from '../store/actions/company'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Orders() {
 
@@ -45,7 +46,11 @@ function Orders() {
 
 function BottomPart({orders}) {
   if (orders == null) {
-    return null
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }} >
+        <CircularProgress></CircularProgress>
+      </div>
+    )
   } else if (orders.length === 0) {
     return <EmptyOrder></EmptyOrder>
   } else {
