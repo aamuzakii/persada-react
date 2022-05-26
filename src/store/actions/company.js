@@ -1,5 +1,6 @@
 import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
 import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
 
@@ -94,7 +95,6 @@ export function fetchAllProducts() {
     let requestOptions = {
       method: 'GET',
       redirect: 'follow',
-      credentials: 'include'
     };
 
     dispatch(setIsLoading(true))
@@ -150,9 +150,13 @@ export function fetchListCategories() {
 export function fetchOrderByStatus(status) {
   return ((dispatch) => {
     let url = `${BASE_URI}/orders/index_by_status?status=${status}`
+    
+    let header = new Headers();
+    header.append("Authorization", cookies.get("token"));
   
     let requestOptions = {
       method: 'GET',
+      headers: header,
       redirect: 'follow'
     };
 
@@ -176,12 +180,12 @@ export function postOrder(payload) {
 
     let header = new Headers();
     header.append("Content-Type", "application/json");
+    header.append("Authorization", cookies.get("token"));
 
     let requestOptions = {
       method: 'POST',
       headers: header,
       body: JSON.stringify(payload),
-      credentials: 'include'
     };
     
     fetch(url, requestOptions)
