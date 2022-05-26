@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTotalPriceInCart } from '../store/actions/company';
+import { setInsideCart, setInsideCartArray } from '../store/actions/company';
 
 export const objToArr = (obj) => {
   let arr = []
@@ -22,10 +23,15 @@ export const useCountTotalPriceInsideCartArray = (insideCartArray) => {
     dispatch(setTotalPriceInCart(decorated_total))
   }, [])
   
-
   return `Rp. ${decorated_total}`
 }
 
 const formatter = new Intl.NumberFormat('id-ID');
 
 export const integerToRupiah = int => `Rp. ${formatter.format(int)}`
+
+export const SetCartLocalAndRedux = (arr) => {
+  const dispatch = useDispatch()
+  dispatch(setInsideCartArray(arr))
+
+}

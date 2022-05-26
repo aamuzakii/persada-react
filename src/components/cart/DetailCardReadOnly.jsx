@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { objToArr } from '../../helpers/Function';
-import { setInsideCart, setInsideCartArray } from '../../store/actions/company';
-import { miniGreyFont, miniBoldFont } from '../SharedStyle';
+import { miniBoldFont, miniGreyFont } from '../SharedStyle';
 
 function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }

@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
 import Cookies from 'universal-cookie';
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
@@ -13,6 +13,13 @@ export function addToFavourite(input) {
 export function setProductByCategory(input) {
   return {
     type: SET_PRODUCT_BY_CATEGORY,
+    payload: input
+  }
+}
+
+export function setListCategory(input) {
+  return {
+    type: SET_LIST_CATEGORY,
     payload: input
   }
 }
@@ -124,6 +131,24 @@ export function fetchProductsAndCategory() {
       .then(response => response.json())
       .then(result => {
         dispatch(setProductByCategory(result))
+      })
+      .catch(error => console.error('error', error));
+  })
+}
+
+export function fetchListCategories() {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/categories`
+
+    let requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        dispatch(setListCategory(result))
       })
       .catch(error => console.error('error', error));
   })

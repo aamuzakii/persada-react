@@ -7,7 +7,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchAllProducts, postOTP } from '../../store/actions/company';
+import { fetchAllProducts, fetchListCategories } from '../../store/actions/company';
 import BasicStack from './BasicStack';
 import CustomSelect from './CustomSelect';
 
@@ -37,12 +37,8 @@ function SwipeableBottomDrawer(props) {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchAllProducts())
+    dispatch(fetchListCategories())
   }, [])
-
-  const handleClick = () => {
-    dispatch(postOTP())
-  }
-
 
   const { window } = props;
   const [open, setOpen] = React.useState(false);
@@ -104,7 +100,6 @@ function SwipeableBottomDrawer(props) {
           }}
         >
           <BasicStack></BasicStack>
-          <button onClick={handleClick} >sdsdsd</button>
         </StyledBox>
       </SwipeableDrawer>
     </Root>

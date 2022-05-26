@@ -16,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BasicStack() {
   let productByCategory = useSelector( state => state.company.productByCategory)
+  console.log(productByCategory)
 
   let arr = []
   for (let key in productByCategory) {

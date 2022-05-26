@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { objToArr } from '../../helpers/Function';
+import { objToArr, SetCartLocalAndRedux } from '../../helpers/Function';
 import { setInsideCart, setInsideCartArray } from '../../store/actions/company';
 import DynamicButton from '../DynamicButton';
 import { miniGreyFont, miniBoldFont } from '../SharedStyle';
