@@ -2,11 +2,14 @@ import React from 'react'
 import Detail from './Detail';
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
+import { objToArr } from '../../helpers/Function'
 
 function Products() {
   const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
   
-  let insideCartArray = useSelector( state => state.company.insideCartArray)
+  let insideCart = useSelector( state => state.company.insideCart)
+
+  let insideCartArray = objToArr(insideCart)
 
   let navigate = useNavigate();
 

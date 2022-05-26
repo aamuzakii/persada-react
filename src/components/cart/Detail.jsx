@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { objToArr, SetCartLocalAndRedux } from '../../helpers/Function';
-import { setInsideCart, setInsideCartArray } from '../../store/actions/company';
+import { setInsideCart } from '../../store/actions/company';
 import DynamicButton from '../DynamicButton';
 import { miniGreyFont, miniBoldFont } from '../SharedStyle';
 
@@ -15,7 +15,6 @@ function Detail({id, name, price, image_url, qty, int_price}) {
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price } }
     let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
-    dispatch(setInsideCartArray(arr))
   }
 
   return (

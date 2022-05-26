@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_INSIDE_CART_ARRAY, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
 import Cookies from 'universal-cookie';
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
@@ -34,13 +34,6 @@ export function setInsideCart(input) {
 export function setTotalPriceInCart(input) {
   return {
     type: SET_TOTAL_PRICE_IN_CART,
-    payload: input
-  }
-}
-
-export function setInsideCartArray(input) {
-  return {
-    type: SET_INSIDE_CART_ARRAY,
     payload: input
   }
 }

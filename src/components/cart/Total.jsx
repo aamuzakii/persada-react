@@ -6,6 +6,7 @@ import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { postOrder } from '../../store/actions/company';
+import { objToArr } from '../../helpers/Function'
 
 function CustomerInfo({setIsConfirmation, isConfirmation}) {
 
@@ -13,7 +14,10 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
 
   const elevatedContainerLeft2 = { ...elevatedContainerLeft, position: "fixed", bottom: 0, height: 90, width: '100vw', backgroundColor: 'white', zIndex: 99, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', boxSizing: 'border-box' }
 
-  let insideCartArray = useSelector( state => state.company.insideCartArray)
+  let insideCart = useSelector( state => state.company.insideCart)
+
+  let insideCartArray = objToArr(insideCart)
+  
   let customerInfo = useSelector( state => state.company.customerInfo)
 
   let totalPriceInCart = useCountTotalPriceInsideCartArray(insideCartArray)

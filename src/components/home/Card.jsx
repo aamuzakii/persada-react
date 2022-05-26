@@ -39,9 +39,7 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
 
   const childToParent = (qty) => {
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price} }
-    let arr = objToArr(insideCart)
     dispatch(setInsideCart(insideCart))
-    dispatch(setInsideCartArray(arr))
   }
 
   return (

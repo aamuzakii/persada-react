@@ -3,11 +3,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { useCountTotalPriceInsideCartArray } from '../../helpers/Function';
+import { useCountTotalPriceInsideCartArray, objToArr } from '../../helpers/Function';
 import { setTotalPriceInCart } from '../../store/actions/company';
 import './ShoppingSnackbar.css';
-
-
 
 function ShoppingSnackbar() {
   let navigate = useNavigate();
@@ -15,7 +13,9 @@ function ShoppingSnackbar() {
   const handleClick = () => {
     navigate('/cart');
   }
-  let insideCartArray = useSelector( state => state.company.insideCartArray)
+  let insideCart = useSelector( state => state.company.insideCart)
+  let insideCartArray = objToArr(insideCart)
+  console.log(insideCartArray)
 
   let totalPrice = useCountTotalPriceInsideCartArray(insideCartArray)
 

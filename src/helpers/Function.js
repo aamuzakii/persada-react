@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTotalPriceInCart } from '../store/actions/company';
-import { setInsideCart, setInsideCartArray } from '../store/actions/company';
+import { setInsideCart } from '../store/actions/company';
 
 export const objToArr = (obj) => {
   let arr = []
@@ -30,8 +30,8 @@ const formatter = new Intl.NumberFormat('id-ID');
 
 export const integerToRupiah = int => `Rp. ${formatter.format(int)}`
 
-export const SetCartLocalAndRedux = (arr) => {
-  const dispatch = useDispatch()
-  dispatch(setInsideCartArray(arr))
+// export const SetCartLocalAndRedux = (arr) => {
+//   const dispatch = useDispatch()
+//   dispatch(setInsideCartArray(arr))
 
-}
+// }
