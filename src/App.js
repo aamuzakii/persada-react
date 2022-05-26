@@ -6,6 +6,7 @@ import Orders from './views/Orders'
 import Cart from './views/Cart'
 import Address from './views/Address'
 import Login from './views/Login'
+import SuccessOrder from './views/SuccessOrder'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="address" element={<Address />} />
         <Route path="login" element={<Login />} />
+        <Route path="success-order" element={<SuccessOrder />} />
       </Routes>
     </div>
   );

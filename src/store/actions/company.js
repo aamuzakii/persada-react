@@ -188,7 +188,7 @@ export function postOrder(payload) {
       body: JSON.stringify(payload),
     };
     
-    fetch(url, requestOptions)
+    return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         // dispatch(setProductByCategory(result))

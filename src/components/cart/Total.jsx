@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { postOrder } from '../../store/actions/company';
 import { objToArr } from '../../helpers/Function'
+import Cookies from 'universal-cookie';
 
 function CustomerInfo({setIsConfirmation, isConfirmation}) {
 
@@ -23,6 +24,7 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
   let totalPriceInCart = useCountTotalPriceInsideCartArray(insideCartArray)
 
   const navigate = useNavigate();
+  const cookies = new Cookies
 
   let orderInfo = {
     additional_info: 'testing bro',
@@ -41,9 +43,11 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
   }
 
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (isConfirmation) {
-      dispatch(postOrder(order_aggregate))
+      await dispatch(postOrder(order_aggregate))
+      cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
+      navigate("/success-order")
     } else {
       setIsConfirmation(true)
     }
