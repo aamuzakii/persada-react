@@ -18,8 +18,6 @@ function Cart() {
 
   const [isConfirmation, setIsConfirmation] = useState(false)
 
-  console.log(isConfirmation)
-  
   return (
     <div style={{ width: '100%' }}>
       { 

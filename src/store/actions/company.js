@@ -136,7 +136,6 @@ export function fetchOrderByStatus(status) {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         dispatch(setOrderByType(result))
       })
       .catch(error => console.error('error', error));
@@ -156,12 +155,10 @@ export function postOrder(payload) {
       body: JSON.stringify(payload),
       credentials: 'include'
     };
-    console.log(payload)
     
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         // dispatch(setProductByCategory(result))
       })
       .catch(error => console.error('error', error));
@@ -184,7 +181,6 @@ export function postOTP(payload) {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result.token,`<bwt`)
         const cookies = new Cookies();
         cookies.set('token', result.token, { path: '/' });
         // dispatch(setCookie(result))
@@ -210,7 +206,6 @@ export function requestOTP(payload) {
     return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        console.log(result.token,`OTP`)
         if (result.token) {
           const cookies = new Cookies();
           cookies.set('token', result.token, { path: '/' });
