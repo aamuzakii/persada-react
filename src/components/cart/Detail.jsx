@@ -14,7 +14,7 @@ function Detail({id, name, price, image_url, qty, int_price}) {
   const childToParent = (qty) => {
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price } }
     let arr = objToArr(insideCart)
-    dispatch(setInsideCart(insideCart))
+    SetCartLocalAndRedux(insideCart, dispatch)
   }
 
   return (

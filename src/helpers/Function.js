@@ -30,8 +30,6 @@ const formatter = new Intl.NumberFormat('id-ID');
 
 export const integerToRupiah = int => `Rp. ${formatter.format(int)}`
 
-// export const SetCartLocalAndRedux = (arr) => {
-//   const dispatch = useDispatch()
-//   dispatch(setInsideCartArray(arr))
-
-// }
+export const SetCartLocalAndRedux = (arr, dispatch) => {
+  dispatch(setInsideCart(arr))
+}
