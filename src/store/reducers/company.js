@@ -9,7 +9,7 @@ const initialState = {
   searchResult : [],
   isLoading: false,
 
-  insideCart: cookies.get('cart'),
+  insideCart: cookies.get('cart') || {},
   totalPriceInCart: 0,
   isCartFilled: true,
 
