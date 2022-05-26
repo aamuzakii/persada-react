@@ -1,5 +1,5 @@
-import { useDispatch } from 'react-redux' 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { setTotalPriceInCart } from '../store/actions/company';
 
 export const objToArr = (obj) => {
@@ -27,3 +27,5 @@ export const useCountTotalPriceInsideCartArray = (insideCartArray) => {
 }
 
 const formatter = new Intl.NumberFormat('id-ID');
+
+export const integerToRupiah = int => `Rp. ${formatter.format(int)}`

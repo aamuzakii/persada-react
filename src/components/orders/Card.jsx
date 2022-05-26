@@ -1,5 +1,6 @@
 import React from 'react'
 import { title, miniBoldFont, miniGreyFont } from '../SharedStyle'
+import {integerToRupiah} from '../../helpers/Function'
 
 function Card({order}) {
   let firstItem = order.products_ordereds[0]
@@ -38,7 +39,7 @@ function Card({order}) {
       <div>
         <div style={miniGreyFont} >Jumlah pesanan</div>
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 5 }} >
-          <div style={miniBoldFont} >Rp. {order.total}</div>
+          <div style={miniBoldFont} >{integerToRupiah(order.total)}</div>
           <div style={{ color:'rgb(255, 71, 71)', borderRadius: 3, fontSize: 12, padding: '2px 4px', border: '1px solid', marginLeft: 15 }} >Belum Lunas</div>
         </div>
       </div>
