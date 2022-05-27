@@ -36,3 +36,16 @@ export const SetCartLocalAndRedux = (obj, dispatch) => {
   cookies.set('cart', obj, { path: '/' });
   dispatch(setInsideCart(obj))
 }
+
+export const groupProductByCategory = productArray => {
+
+  let result = {}
+  productArray.map((item)=> {
+    let foo = item.category
+    if (!result[foo]) {
+      result[foo] = []
+    }
+    result[foo].push(item)
+  })
+  return result
+}

@@ -15,24 +15,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function BasicStack() {
-  let productByCategory = useSelector( state => state.company.productByCategory)
-  console.log(productByCategory)
+  let listCategory = useSelector( state => state.company.listCategory)
 
-  let arr = []
-  for (let key in productByCategory) {
-    arr.push({ name: productByCategory[key].name, qty: productByCategory[key].count })
-  }
+  // let arr = []
+  // for (let key in productByCategory) {
+  //   arr.push({ name: productByCategory[key].name, qty: productByCategory[key].count })
+  // }
 
   return (
     <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
-        {arr.map(({name, qty}, index) => (
+        {listCategory.map(({name, qty_inside}, index) => (
             <Item key={index} >
             <Typography variant="h7" component="div" color="text.primary">
               { name }
             </Typography>
             <Typography variant="body4" sx={{ mb: 1.5 }} color="text.secondary">
-              {qty} produk
+              {qty_inside} produk
             </Typography>
           </Item> 
         ))}

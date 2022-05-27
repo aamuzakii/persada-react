@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Card from './Card'
 import { useSelector } from 'react-redux'
 import CircularProgress from '@mui/material/CircularProgress';
+import { groupProductByCategory } from '../../helpers/Function'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,6 +20,8 @@ export default function BasicGrid() {
   let productToShow = useSelector( state => state.company.productToShow)
   let insideCart = useSelector( state => state.company.insideCart)
   let isLoading = useSelector( state => state.company.isLoading)
+
+  let groupedProduct = groupProductByCategory(productToShow)
 
   productToShow.map(getArrayValues);
 

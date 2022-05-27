@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProducts, fetchListCategories } from '../../store/actions/company';
 import BasicStack from './BasicStack';
 import CustomSelect from './CustomSelect';
@@ -50,6 +50,8 @@ function SwipeableBottomDrawer(props) {
   // This is used only for the example
   const container = window !== undefined ? () => window().document.body : undefined;
 
+  let listCategory = useSelector( state => state.company.listCategory)
+
   return (
     <Root>
       <CssBaseline />
@@ -63,7 +65,12 @@ function SwipeableBottomDrawer(props) {
       />
         <div style={{display: 'flex', alignItems: 'center'}}>
           <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
-          <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10}} >Semua produk</div>
+          <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >Semua kategori</div>
+          {
+            listCategory.map(({name})=> (
+              <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >{name}</div>
+            ))
+          }
         </div>
       <SwipeableDrawer
         container={container}

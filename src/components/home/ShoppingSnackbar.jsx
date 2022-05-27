@@ -15,7 +15,6 @@ function ShoppingSnackbar() {
   }
   let insideCart = useSelector( state => state.company.insideCart)
   let insideCartArray = objToArr(insideCart)
-  console.log(insideCartArray)
 
   let totalPrice = useCountTotalPriceInsideCartArray(insideCartArray)
 
