@@ -57,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({isShowSideDrawer}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -167,7 +167,9 @@ export default function PrimarySearchAppBar() {
             sx={{ mr: 2 }}
           >
             {/* <MenuIcon /> */}
-            <SideDrawer/>
+            {
+              isShowSideDrawer && (<SideDrawer/>)
+            }
           </IconButton>
           <Typography
             variant="h6"
