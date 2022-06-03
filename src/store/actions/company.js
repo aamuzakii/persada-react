@@ -98,6 +98,7 @@ export function fetchAllProducts() {
     };
 
     dispatch(setIsLoading(true))
+      console.log('fetching all prod..')
     
     fetch(url, requestOptions)
       .then(response => response.json())

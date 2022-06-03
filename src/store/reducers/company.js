@@ -11,7 +11,7 @@ const initialState = {
 
   insideCart: cookies.get('cart') || {},
   totalPriceInCart: 0,
-  isCartFilled: true,
+  isCartFilled: 0,
 
   productToShow: [],
   productByCategory: {},

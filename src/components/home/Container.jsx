@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Card from './Card'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAllProducts, fetchListCategories } from '../../store/actions/company';
 import CircularProgress from '@mui/material/CircularProgress';
 import { groupProductByCategory } from '../../helpers/Function'
 
@@ -31,6 +32,12 @@ export default function BasicGrid() {
       item.qty = insideCart[item.id].qty
     }
   }
+
+  const dispatch = useDispatch()
+  React.useEffect(() => {
+    dispatch(fetchAllProducts())
+    dispatch(fetchListCategories())
+  }, [])
 
   return (
     <Box sx={{ flexGrow: 1 }}>

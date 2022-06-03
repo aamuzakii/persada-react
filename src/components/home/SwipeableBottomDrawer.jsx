@@ -7,7 +7,6 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts, fetchListCategories } from '../../store/actions/company';
 import BasicStack from './BasicStack';
 import CustomSelect from './CustomSelect';
 
@@ -34,11 +33,6 @@ const Puller = styled(Box)(({ theme }) => ({
 }));
 
 function SwipeableBottomDrawer(props) {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchAllProducts())
-    dispatch(fetchListCategories())
-  }, [])
 
   const { window } = props;
   const [open, setOpen] = React.useState(false);
