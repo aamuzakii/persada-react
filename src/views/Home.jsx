@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../components/home/AdvNavbar'
 import Container from '../components/home/Container'
@@ -19,11 +19,21 @@ function Home() {
     dispatch(setIsCartFilled(totalItemInCart))
   }, [insideCart])
   
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 600px)").matches
+  )
 
+  useEffect(() => {
+    window
+    .matchMedia("(min-width: 600px)")
+    .addEventListener('change', e => setMatches( e.matches ));
+  }, []);
+
+  let isShowSideDrawer = !matches
 
   return (
     <div>
-      <Navbar isShowSideDrawer={true} />
+      <Navbar isShowSideDrawer={isShowSideDrawer} />
       <div style={{ width: '100%', height: 233, display: 'flex', justifyContent: 'center', overflow: 'hidden', marginBottom: 15 }} >
         <img style={{ height: 300 }}  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" alt=""  />
       </div>
