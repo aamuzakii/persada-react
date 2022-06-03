@@ -7,11 +7,9 @@ import SwipeableBottomDrawer from '../components/home/SwipeableBottomDrawer'
 import { setIsCartFilled } from '../store/actions/company'
 
 function Home() {
-  console.log('rendering parent home')
   const dispatch = useDispatch()
   const isCartFilled = useSelector( state => state.company.isCartFilled)
   let insideCart = useSelector( state => state.company.insideCart)
-  console.log(isCartFilled, `<<<`)
 
   const totalItemInCart = Object.keys(insideCart).reduce(function (previous, key) {
     return previous + insideCart[key].qty;
