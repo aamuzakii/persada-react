@@ -212,7 +212,6 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

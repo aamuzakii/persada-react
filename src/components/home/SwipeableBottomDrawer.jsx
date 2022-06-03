@@ -61,8 +61,8 @@ function SwipeableBottomDrawer(props) {
           <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
           <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >Semua</div>
           {
-            listCategory.map(({name})=> (
-              <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >{name}</div>
+            listCategory.map(({name}, index)=> (
+              <div key={index} style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >{name}</div>
             ))
           }
         </div>
