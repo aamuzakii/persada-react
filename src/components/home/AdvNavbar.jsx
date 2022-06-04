@@ -60,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({isShowSideDrawer}) {
+export default function PrimarySearchAppBar({isShowSideDrawer}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

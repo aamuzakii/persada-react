@@ -27,7 +27,7 @@ function ShoppingSnackbar() {
 
 
   return (
-    <div className='container' onClick={handleClick} >
+    <div className='container-shopping-snackbar' onClick={handleClick} >
       <div className='grouped' >
         <ShoppingCartIcon></ShoppingCartIcon>
         <div>{totalPrice}</div>
