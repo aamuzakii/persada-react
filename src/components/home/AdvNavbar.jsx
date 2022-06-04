@@ -16,6 +16,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProductToShow } from '../../store/actions/company'
+import { useNavigate } from "react-router-dom"
 
 import SideDrawer from './SideDrawer'
 
@@ -59,9 +60,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({isShowSideDrawer}) {
+export default function Navbar({isShowSideDrawer}) {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const completeProduct = useSelector(state => state.company.completeProduct)
 
@@ -73,6 +75,10 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       }
     });
     dispatch(setProductToShow(res))
+  }
+
+  const toCart = () => {
+    navigate('/cart');
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -156,6 +162,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -166,9 +173,12 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               onInput={handleType}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
+
+          {/* LIST ICON BUTTON */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton onClick={toCart} size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <ShoppingCartIcon />
               </Badge>
