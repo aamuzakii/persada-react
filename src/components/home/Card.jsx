@@ -49,7 +49,9 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
         image={image_url}
         alt="Paella dish"
         sx={{
-          objectFit: 'scale-down'
+          objectFit: 'scale-down',
+          width: '226px',
+          height: '226px'
         }}
       />
       <div style={{ margin: 8 }}>
