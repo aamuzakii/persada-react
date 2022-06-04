@@ -12,6 +12,10 @@ body {
     margin: auto !important;
     width: 500px !important;
   }
+
+  footer {
+    width: 500px !important;
+  }
 }
 
 code {

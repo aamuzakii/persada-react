@@ -15,7 +15,7 @@ function Address() {
   return (
     <div style={elevatedContainerLeft} >
       <p style={title2} >Alamat</p>
-      <Button onClick={handleClick} variant="outlined"  style={{ margin: '10vw', boxSizing: 'border-box' }} startIcon={<AddCircleOutlineIcon />}>
+      <Button onClick={handleClick} variant="outlined"  style={{ margin: 'auto', marginTop: 20, marginBottom: 20, boxSizing: 'border-box' }} startIcon={<AddCircleOutlineIcon />}>
         Tambah Alamat Pengiriman
       </Button>
     </div>
