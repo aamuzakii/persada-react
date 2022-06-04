@@ -4,32 +4,37 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import {Button} from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { postOTP, requestOTP } from '../../store/actions/company';
+import { postOTP, requestOTP, googleLogin } from '../../store/actions/company';
 import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import { GoogleLogin } from 'react-google-login';
 import './Input.css'
 
-const responseGoogle = (response) => {
-  console.log(response);
-}
 
 function Delivery() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
+  const cookies = new Cookies();
 
   const [phone, setPhone] = useState('')
 
   const handleSubmit = async () => {
     await dispatch(requestOTP({ phone }))
-    const cookies = new Cookies();
     let token = cookies.get('token')
     if (token) navigate("/")
   }
 
+  const responseGoogle = async (response) => {
+    await dispatch(googleLogin(response))
+    let token = cookies.get('token')
+    if (token) navigate("/")
+  }
+
+  let elevatedContainerLeft2 = { ...elevatedContainerLeft, color: 'blue', height: '80%' }
+
   return (
-    <div style={ elevatedContainerLeft } >
+    <div style={ elevatedContainerLeft2 } >
       <p style={ subTitle } >Verifikasi nomor WhatsApp kamu untuk melanjutkan</p>
       <div style={{ display: 'flex' }} >
       <TextField

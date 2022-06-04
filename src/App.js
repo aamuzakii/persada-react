@@ -10,7 +10,6 @@ import SuccessOrder from './views/SuccessOrder'
 
 export default function App() {
   return (
-    <div>
       <Routes>
         <Route index element={<Home />} />
         <Route path="orders" element={<Orders />} />
@@ -19,7 +18,6 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="success-order" element={<SuccessOrder />} />
       </Routes>
-    </div>
   );
 }
 

@@ -4,10 +4,10 @@ import Navbar from '../components/home/AdvNavbar'
 
 function Login() {
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <Input/>
-    </div>
+    </>
   )
 }
 
