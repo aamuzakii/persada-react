@@ -16,6 +16,11 @@ body {
   footer {
     width: 500px !important;
   }
+
+  .MuiDrawer-root>.MuiPaper-root {
+    width: 500px;
+    margin: auto;
+  }
 }
 
 code {

@@ -5,9 +5,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import BasicStack from './BasicStack';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import CategoryStack from './BasicStack';
 import CustomSelect from './CustomSelect';
 
 const drawerBleeding = 56;
@@ -100,7 +100,7 @@ function SwipeableBottomDrawer(props) {
             overflow: 'auto',
           }}
         >
-          <BasicStack></BasicStack>
+          <CategoryStack/>
         </StyledBox>
       </SwipeableDrawer>
     </Root>

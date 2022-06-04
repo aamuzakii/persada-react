@@ -18,7 +18,7 @@ function Flow() {
 export default Flow
 
 const Dash = () => (
-  <svg status="InProgress" class="ThemedStepper__StyledStepperLine-flsi9t-3 dkjzDj" width="24" height="3" viewBox="0 0 24 3" fill="null" xmlns="http://www.w3.org/2000/svg"><path fill="#345999" d="M0 .5h24v2H0z"></path></svg>
+  <svg status="InProgress" className="ThemedStepper__StyledStepperLine-flsi9t-3 dkjzDj" width="24" height="3" viewBox="0 0 24 3" fill="null" xmlns="http://www.w3.org/2000/svg"><path fill="#345999" d="M0 .5h24v2H0z"></path></svg>
 )
 
 const Node = ({text, isCompleted}) => (
