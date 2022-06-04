@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT } from '../actionTypes'
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -74,6 +74,13 @@ export function setProductToShow(input) {
   }
 }
 
+export function setCompleteProduct(input) {
+  return {
+    type: SET_COMPLETE_PRODUCT,
+    payload: input
+  }
+}
+
 export function setOrderByType(input) {
   return {
     type: SET_ORDER_BY_TYPE,
@@ -103,6 +110,7 @@ export function fetchAllProducts() {
       .then(response => response.json())
       .then(result => {
         dispatch(setProductToShow(result))
+        dispatch(setCompleteProduct(result))
       })
       .finally(()=> {
         dispatch(setIsLoading(false))

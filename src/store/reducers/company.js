@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY } from '../actionTypes'
+import { ADD_FAVOURITE, SET_RECOMMENDATIONS, SET_SEARCH_RESULT, SET_IS_LOADING, SET_CURRENT_COMPANY, SET_IS_CART_FILLED, SET_INSIDE_CART, SET_PRODUCT_TO_SHOW, SET_PRODUCT_BY_CATEGORY, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT } from '../actionTypes'
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -14,6 +14,7 @@ const initialState = {
   isCartFilled: 0,
 
   productToShow: [],
+  completeProduct: [],
   productByCategory: {},
   listCategory: [],
 
@@ -48,6 +49,8 @@ function companyReducer (state = initialState, action) {
         return { ...state, listCategory : payload }
       case SET_PRODUCT_TO_SHOW:
         return { ...state, productToShow : payload }
+      case SET_COMPLETE_PRODUCT:
+        return { ...state, completeProduct : payload }
       case SET_CUSTOMER_INFO:
         return { ...state, customerInfo : payload }
       case SET_ORDER_BY_TYPE:

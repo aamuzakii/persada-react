@@ -14,6 +14,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProductToShow } from '../../store/actions/company'
 
 import SideDrawer from './SideDrawer'
 
@@ -58,6 +60,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar({isShowSideDrawer}) {
+
+  const dispatch = useDispatch()
+
+  const completeProduct = useSelector(state => state.company.completeProduct)
+
+  const handleType = (e) => {
+    let input = e.target.value
+    let res = completeProduct.filter((item)=>{
+      if(item.name.toLowerCase().includes(input.toLowerCase())){
+        return item
+      }
+    });
+    dispatch(setProductToShow(res))
+  }
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -146,6 +163,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onInput={handleType}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
