@@ -41,7 +41,7 @@ export const groupProductByCategory = productArray => {
 
   let result = {}
   productArray.map((item)=> {
-    let foo = item.category
+    let foo = item.category.id
     if (!result[foo]) {
       result[foo] = []
     }

@@ -6,9 +6,10 @@ import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CategoryStack from './BasicStack';
 import CustomSelect from './CustomSelect';
+import { setProductToShow } from '../../store/actions/company'
 
 const drawerBleeding = 56;
 
@@ -46,6 +47,36 @@ function SwipeableBottomDrawer(props) {
 
   let listCategory = useSelector( state => state.company.listCategory)
 
+  const categoryChip = { backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 300, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20, cursor: 'pointer' }
+
+  const dispatch = useDispatch();
+
+  const completeProduct = useSelector(state => state.company.completeProduct)
+
+  const distinguishChip = (e) => {
+    e.target.parentElement.childNodes.forEach(element => {
+      element.style.fontWeight = '300';
+    });
+    e.target.style.fontWeight = '500';
+  }
+
+  const selectCategory = (e) => {
+    distinguishChip(e)
+
+    let input = e.target.innerHTML;
+    let res = completeProduct.filter((item)=>{
+      if(item.category.name === input){
+        return item
+      }
+    });
+    dispatch(setProductToShow(res))
+  }
+
+  const selectAllCategory = (e) => {
+    distinguishChip(e)
+    dispatch(setProductToShow(completeProduct))
+  }
+
   return (
     <Root>
       <CssBaseline />
@@ -59,10 +90,10 @@ function SwipeableBottomDrawer(props) {
       />
         <div style={{display: 'flex', alignItems: 'center', overflow: 'auto' }}>
           <CustomSelect clickHandler={toggleDrawer(true)} ></CustomSelect>
-          <div style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >Semua</div>
+          <div onClick={selectAllCategory} style={categoryChip} >Semua</div>
           {
             listCategory.map(({name}, index)=> (
-              <div key={index} style={{backgroundColor: 'rgb(234, 232, 244)', borderRadius: 4, fontSize: 12, fontWeight: 500, padding: 5, paddingLeft: 10, paddingRight: 10, marginRight: 20 }} >{name}</div>
+              <div onClick={selectCategory} key={index} style={categoryChip} >{name}</div>
             ))
           }
         </div>

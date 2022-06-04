@@ -5,7 +5,7 @@ function CustomSelect(props) {
 
   return (
     <>
-      <select className='urang' onClick={props.clickHandler} >
+      <select className='select-category' onClick={props.clickHandler} >
         <option value="" selected disabled hidden>Kategori</option>
       </select>
     </>
