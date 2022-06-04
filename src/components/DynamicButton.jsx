@@ -20,6 +20,8 @@ function DynamicButton({childToParent, qtyFromRedux}) {
     childToParent(newQty)
   }
 
+  const crementStyle = { cursor: 'pointer', width: '20%', textAlign: 'center' }
+
   if (qty < 1) {
     return (
       <>
@@ -31,10 +33,10 @@ function DynamicButton({childToParent, qtyFromRedux}) {
   } else {
     return (
       <>
-        <div style={{ display: 'flex', border: '1px solid rgb(217, 217, 217)', justifyContent: 'space-around', fontSize: 18, borderRadius: 4}}>
-          <div onClick={decrement} >—</div>
-          <div>{ qty}</div>
-          <div onClick={increment} >+</div>
+        <div style={{ display: 'flex', border: '1px solid rgb(217, 217, 217)', justifyContent: 'space-around', fontSize: 18, borderRadius: 4 }}>
+          <div onClick={decrement} style={crementStyle} >—</div>
+          <div>{ qty }</div>
+          <div onClick={increment} style={crementStyle} >+</div>
         </div>
       </>
     )
