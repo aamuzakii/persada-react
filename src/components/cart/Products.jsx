@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { objToArr } from '../../helpers/Function'
 
 function Products() {
-  const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold' }
+  const blueMiniFont = { margin: 10, color: 'rgb(8, 148, 235)', fontSize: 12, fontWeight: 'bold', cursor: 'pointer' }
   
   let insideCart = useSelector( state => state.company.insideCart)
 
