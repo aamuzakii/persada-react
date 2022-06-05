@@ -81,6 +81,10 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
     navigate('/cart');
   }
 
+  const toOrdersPage = () => {
+    navigate('/cart');
+  }
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -117,7 +121,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={toCart} >
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <ShoppingCartIcon />
@@ -125,7 +129,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
         </IconButton>
         <p>My Cart</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={toOrdersPage} >
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -187,6 +191,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={toOrdersPage}
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
