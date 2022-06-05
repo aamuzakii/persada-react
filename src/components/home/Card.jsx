@@ -42,6 +42,9 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
     SetCartLocalAndRedux(insideCart, dispatch)
   }
 
+  const isLaptop = window.innerWidth > 600
+  const cardWidth = isLaptop ? '226px' : '100%'
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -50,7 +53,7 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
         alt="Paella dish"
         sx={{
           objectFit: 'scale-down',
-          width: '226px',
+          width: cardWidth,
           height: '226px'
         }}
       />
