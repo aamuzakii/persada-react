@@ -17,7 +17,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProductToShow } from '../../store/actions/company'
 import { useNavigate } from "react-router-dom"
-
+import Cookies from 'universal-cookie';
 import SideDrawer from './SideDrawer'
 
 const Search = styled('div')(({ theme }) => ({
@@ -67,7 +67,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
 
   const completeProduct = useSelector(state => state.company.completeProduct)
 
-  const handleType = (e) => {
+  const handleTypeOnSearch = (e) => {
     let input = e.target.value
     let res = completeProduct.filter((item)=>{
       if(item.name.toLowerCase().includes(input.toLowerCase())){
@@ -141,6 +141,17 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
+      <MenuItem onClick={toOrdersPage} >
+        <IconButton
+          size="large"
+          color="inherit"
+        >
+          <Badge badgeContent={1} color="error">
+            <ProfileChip/>
+          </Badge>
+        </IconButton>
+        <p>Account</p>
+      </MenuItem>
     </Menu>
   );
 
@@ -174,7 +185,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-              onInput={handleType}
+              onInput={handleTypeOnSearch}
             />
           </Search>
 
@@ -206,7 +217,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <ProfileChip/>
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -226,4 +237,20 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       {renderMobileMenu}
     </Box>
   );
+}
+
+
+function ProfileChip() {
+  const cookies = new Cookies
+  let profileData = cookies.get('profile_data')
+  let token = cookies.get('token')
+
+  return (
+    <>
+      {
+        profileData && token ? <img src={profileData.imageUrl} width="27" style={{ borderRadius: 25 }} />
+                             : <AccountCircle />
+      }
+    </>
+  )
 }

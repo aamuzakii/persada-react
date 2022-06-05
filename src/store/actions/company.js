@@ -277,12 +277,15 @@ export function googleLogin(payload) {
       body: JSON.stringify(payload)
     };
     
+    const profileData = payload.profileObj
+    
     return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.token) {
           const cookies = new Cookies();
           cookies.set('token', result.token, { path: '/' });
+          cookies.set('profile_data', profileData, { path: '/' });
           dispatch(setCookie(result.token))
         }
       })
