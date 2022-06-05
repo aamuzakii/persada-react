@@ -119,7 +119,7 @@ export default function SimpleHeader() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Link style={{textDecoration: 'none', color: 'white'}} to="/"><ArrowBackSharpIcon></ArrowBackSharpIcon></Link>
+          <Link style={{textDecoration: 'none', color: 'white', display: 'flex'}} to="/"><ArrowBackSharpIcon></ArrowBackSharpIcon></Link>
           <Typography
             variant="h6"
             noWrap

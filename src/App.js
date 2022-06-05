@@ -7,6 +7,7 @@ import Cart from './views/Cart'
 import Address from './views/Address'
 import Login from './views/Login'
 import SuccessOrder from './views/SuccessOrder'
+import OrderDetail from './views/OrderDetail'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="address" element={<Address />} />
         <Route path="login" element={<Login />} />
         <Route path="success-order" element={<SuccessOrder />} />
+        <Route path="order/:id" element={<OrderDetail />} />
       </Routes>
   );
 }

@@ -82,7 +82,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
   }
 
   const toOrdersPage = () => {
-    navigate('/cart');
+    navigate('/orders');
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -15,11 +15,11 @@ export default function NavbarOrder() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Link style={{textDecoration: 'none', color: 'white'}} to="/"><ArrowBackSharpIcon></ArrowBackSharpIcon></Link>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link style={{textDecoration: 'none', color: 'white', display: 'flex' }} to="/"><ArrowBackSharpIcon></ArrowBackSharpIcon></Link>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2 }}>
+            Pesanan Saya
           </Typography>
-          <SearchOutlinedIcon sx={{ margin: 1 }} ></SearchOutlinedIcon>
-          <ShoppingCartIcon></ShoppingCartIcon>
+          {/* <SearchOutlinedIcon sx={{ margin: 1 }} ></SearchOutlinedIcon> */}
         </Toolbar>
       </AppBar>
     </Box>
