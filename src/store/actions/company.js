@@ -180,7 +180,7 @@ export function fetchOrderByStatus(status) {
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        dispatch(setOrderByType(result))
+        if (Array.isArray(result)) dispatch(setOrderByType(result))
       })
       .finally(()=> {
         dispatch(setIsLoading(false))

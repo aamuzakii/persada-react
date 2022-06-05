@@ -45,6 +45,7 @@ function Orders() {
 }
 
 function BottomPart({orders}) {
+  const cookies = new Cookies();
   if (orders == null) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }} >
@@ -53,7 +54,7 @@ function BottomPart({orders}) {
     )
   } else if (orders.length === 0) {
     return <EmptyOrder></EmptyOrder>
-  } else {
+  } else if (orders.length > 0) {
     return (
       <>
         {
@@ -62,6 +63,11 @@ function BottomPart({orders}) {
           )) 
         }
       </>
+    )
+  } else if (orders.message === "no login user") {
+    // cookies.remove('token', { path: '/' });
+    return (
+      <>{orders.message}</>
     )
   }
 }
