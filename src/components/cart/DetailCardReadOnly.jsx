@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { integerToRupiah } from '../../helpers/Function';
 import { miniBoldFont, miniGreyFont } from '../SharedStyle';
 
 function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
@@ -7,6 +8,8 @@ function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
 
   let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
+
+  let readableTotalPrice = integerToRupiah(int_price*qty)
 
   return (
     <div style={{ width: '100%' }} >
@@ -17,7 +20,7 @@ function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
           <p style={ miniGreyFont } >{ name }</p>
           <p style={miniGreyFont} >{qty} x { price }</p>
         </div>
-        <p style={miniBoldFont} >Rp.{int_price*qty}</p>
+        <p style={miniBoldFont} >{readableTotalPrice}</p>
       </div>
     </div>
     </div>
