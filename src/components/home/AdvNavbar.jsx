@@ -123,7 +123,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
     >
       <MenuItem onClick={toCart} >
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -135,7 +135,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -146,7 +146,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
           size="large"
           color="inherit"
         >
-          <Badge badgeContent={1} color="error">
+          <Badge color="error">
             <ProfileChip/>
           </Badge>
         </IconButton>
@@ -194,7 +194,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
           {/* LIST ICON BUTTON */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton onClick={toCart} size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
+              <Badge color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
@@ -204,7 +204,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               color="inherit"
               onClick={toOrdersPage}
             >
-              <Badge badgeContent={17} color="error">
+              <Badge color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
