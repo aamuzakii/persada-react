@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT, SET_CART_STEP } from '../actionTypes'
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -91,6 +91,13 @@ export function setOrderByType(input) {
 export function setCookie(input) {
   return {
     type: SET_COOKIE,
+    payload: input
+  }
+}
+
+export function setCartStep(input) {
+  return {
+    type: SET_CART_STEP,
     payload: input
   }
 }
