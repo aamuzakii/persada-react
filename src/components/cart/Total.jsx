@@ -6,7 +6,7 @@ import { useCountTotalPriceInsideCartArray } from '../../helpers/Function'
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { postOrder } from '../../store/actions/company';
-import { objToArr } from '../../helpers/Function'
+import { objToArr, SetCartLocalAndRedux } from '../../helpers/Function'
 import Cookies from 'universal-cookie';
 
 function CustomerInfo({setIsConfirmation, isConfirmation}) {
@@ -49,6 +49,7 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
       if (cookies.get('token')) {
         cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
         navigate("/success-order")
+        SetCartLocalAndRedux( {}, dispatch)
       } else {
         navigate("/login")
       }
