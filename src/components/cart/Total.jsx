@@ -46,8 +46,12 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
   const handleClick = async () => {
     if (isConfirmation) {
       await dispatch(postOrder(order_aggregate))
-      cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
-      navigate("/success-order")
+      if (cookies.get('token')) {
+        cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
+        navigate("/success-order")
+      } else {
+        navigate("/login")
+      }
     } else {
       setIsConfirmation(true)
     }

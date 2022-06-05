@@ -30,8 +30,14 @@ export default SuccessOrder
 
 function SuccessOrderComponent() {
 
+  const navigate = useNavigate();
+
   const miniGreyFont2 = { ...miniGreyFont, textAlign: 'center' }
   const miniBoldFont2 = { ...miniBoldFont, color: '#1976d2', cursor: 'pointer' }
+
+  const toHome = () => {
+    navigate('/')
+  }
 
   return (
     <div style={{ padding: 25, display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
@@ -49,7 +55,7 @@ function SuccessOrderComponent() {
         </div>
       </div>
       <Button  sx={{ marginTop: 10 }} variant="contained" disableElevation >Lacak Pesanan</Button>
-      <Button>Kembali ke katalog</Button>
+      <Button onClick={toHome} >Kembali ke katalog</Button>
     </div>
   )
 }
