@@ -33,14 +33,17 @@ function Home() {
 
   const imageStyle = { 
     // height: 300,
+    height: 'fit-content',
     width: '100%',
    }
+
+   const imageUrl = 'https://media.istockphoto.com/photos/supermarket-aisle-blurred-background-with-laptop-computer-and-cart-on-picture-id963747918?k=20&m=963747918&s=612x612&w=0&h=uQA155YzW--kdQT5Qg-darvrSy4cuOPC6lOFoFkvrxg='
 
   return (
     <div>
       <Navbar isShowSideDrawer={isShowSideDrawer} />
       <div style={{ width: '100%', height: 233, display: 'flex', justifyContent: 'center', overflow: 'hidden', marginBottom: 15 }} >
-        <img style={imageStyle}  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" alt=""  />
+        <img style={imageStyle}  src={imageUrl} alt=""  />
       </div>
       <SwipeableBottomDrawer></SwipeableBottomDrawer>
       {/* {JSON. stringify(insideCart)} */}
