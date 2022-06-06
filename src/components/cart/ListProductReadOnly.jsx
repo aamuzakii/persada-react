@@ -29,8 +29,8 @@ function ListProductReadOnly({ consumer }) {
       {/* BELOW ARE PRODUCTS */}
       
       {
-        productsArray.map(({id, name, price, image_url, qty, int_price})=> (
-          <DetailCardReadOnly id={id} name={name} price={price} image_url={image_url} key={id} qty={qty} int_price={int_price} ></DetailCardReadOnly>
+        productsArray.map(({id, name, price, image_url, qty, int_price}, i)=> (
+          <DetailCardReadOnly id={id} name={name} price={price} image_url={image_url} key={i} qty={qty} int_price={int_price} ></DetailCardReadOnly>
         ))
       }
 

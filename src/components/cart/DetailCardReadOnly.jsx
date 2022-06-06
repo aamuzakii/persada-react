@@ -8,6 +8,14 @@ function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
 
   let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
+  let priceAtLeft
+
+  if (typeof int_price === 'undefined') {
+    int_price = price // for order detail page, because it has no int_price
+    priceAtLeft = integerToRupiah(price)
+  } else {
+    priceAtLeft = price
+  }
 
   let readableTotalPrice = integerToRupiah(int_price*qty)
 
@@ -18,7 +26,7 @@ function DetailCardReadOnly({id, name, price, image_url, qty, int_price}) {
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: 15, alignItems: 'center'}} >
         <div>
           <p style={ miniGreyFont } >{ name }</p>
-          <p style={miniGreyFont} >{qty} x { price }</p>
+          <p style={miniGreyFont} >{qty} x { priceAtLeft }</p>
         </div>
         <p style={miniBoldFont} >{readableTotalPrice}</p>
       </div>
