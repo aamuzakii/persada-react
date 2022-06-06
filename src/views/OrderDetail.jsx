@@ -29,10 +29,9 @@ function OrderDetail() {
     <div>
     <SimpleHeader title="Detail Pesanan" ></SimpleHeader>
     <Flow></Flow>
-    <ListProductReadOnly></ListProductReadOnly>
+    <ListProductReadOnly consumer='order_detail_page' ></ListProductReadOnly>
     <Delivery></Delivery>
     <PurchaseSummary></PurchaseSummary>
-    <Total  ></Total>
     <Bumper></Bumper>
 
     </div>
