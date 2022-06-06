@@ -50,9 +50,9 @@ function Home() {
       <Container>
         
       </Container>
-      {isCartFilled ? <footer style={{color: "gray", position: "fixed", bottom: 0}}>
-        <ShoppingSnackbar></ShoppingSnackbar>
-      </footer> : <></>}
+      { 
+        isCartFilled ? <footer style={{color: "gray", position: "fixed", bottom: 0}}><ShoppingSnackbar/></footer> : <></>
+      }
       
     </div>
   )
