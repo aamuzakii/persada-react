@@ -31,11 +31,16 @@ function Home() {
 
   let isShowSideDrawer = !matches
 
+  const imageStyle = { 
+    // height: 300,
+    width: '100%',
+   }
+
   return (
     <div>
       <Navbar isShowSideDrawer={isShowSideDrawer} />
       <div style={{ width: '100%', height: 233, display: 'flex', justifyContent: 'center', overflow: 'hidden', marginBottom: 15 }} >
-        <img style={{ height: 300 }}  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" alt=""  />
+        <img style={imageStyle}  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" alt=""  />
       </div>
       <SwipeableBottomDrawer></SwipeableBottomDrawer>
       {/* {JSON. stringify(insideCart)} */}

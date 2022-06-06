@@ -39,6 +39,12 @@ function SuccessOrderComponent() {
     navigate('/')
   }
 
+  const toOrderDetail = () => {
+    navigate(`/order/${orderNumber}`)
+  }
+
+  const orderNumber = cookie.get('recent_posted_order')
+
   return (
     <div style={{ padding: 25, display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
       <CheckMark/>
@@ -50,11 +56,11 @@ function SuccessOrderComponent() {
           <p style={miniBoldFont} >Rp.100.000</p>
         </div>
         <div>
-          <p style={miniGreyFont}  >Pesanan TK-676837-222736000</p>
+          <p style={miniGreyFont}  >Pesanan {orderNumber}</p>
           <p style={miniBoldFont2} >Lihat Detail</p>
         </div>
       </div>
-      <Button  sx={{ marginTop: 10 }} variant="contained" disableElevation >Lacak Pesanan</Button>
+      <Button onClick={toOrderDetail} sx={{ marginTop: 10 }} variant="contained" disableElevation >Lacak Pesanan</Button>
       <Button onClick={toHome} >Kembali ke katalog</Button>
     </div>
   )
