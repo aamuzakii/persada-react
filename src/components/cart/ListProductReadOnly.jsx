@@ -6,21 +6,16 @@ import { objToArr } from '../../helpers/Function'
 
 function ListProductReadOnly({ consumer }) {
   
-  const orderDetail = useSelector( state => state.company.orderDetail)
-  let insideCart = useSelector( state => state.company.insideCart)
+  const companyState = useSelector( state => state.company)
   let productsArray = []
 
   if (consumer === 'order_detail_page') {
+    const orderDetail = companyState.orderDetail
     productsArray= orderDetail.products
   } else {
     // for page cart
+    const insideCart = companyState.insideCart
     productsArray = objToArr(insideCart)
-  }
-
-  let navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/');
   }
 
   return (
