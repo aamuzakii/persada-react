@@ -8,7 +8,7 @@ function ListProductReadOnly({ consumer }) {
   
   const orderDetail = useSelector( state => state.company.orderDetail)
   let insideCart = useSelector( state => state.company.insideCart)
-  let productsArray
+  let productsArray = []
 
   if (consumer === 'order_detail_page') {
     productsArray= orderDetail.products

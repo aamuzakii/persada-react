@@ -21,7 +21,7 @@ const initialState = {
 
   customerInfo: {},
   orderByType: null,
-  orderDetail: {},
+  orderDetail: { products: []},
   cookie: ''
 }
 
