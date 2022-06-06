@@ -17,7 +17,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
 import { Link } from 'react-router-dom';
 
-export default function SimpleHeader() {
+export default function SimpleHeader({ title }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -126,7 +126,9 @@ export default function SimpleHeader() {
             component="div"
             sx={{ display: { xs: 'block', sm: 'block' }, marginLeft: 3 }}
           >
-            Keranjang
+            {
+              title ? title : 'Keranjang'
+            }
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
         </Toolbar>

@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT, SET_CART_STEP } from '../actionTypes'
+import { ADD_FAVOURITE, SET_INSIDE_CART, SET_IS_CART_FILLED, SET_IS_LOADING, SET_PRODUCT_BY_CATEGORY, SET_PRODUCT_TO_SHOW, SET_SEARCH_RESULT, SET_TOTAL_PRICE_IN_CART, SET_CUSTOMER_INFO, SET_ORDER_BY_TYPE, SET_COOKIE, SET_LIST_CATEGORY, SET_COMPLETE_PRODUCT, SET_CART_STEP, ORDER_DETAIL } from '../actionTypes'
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -84,6 +84,13 @@ export function setCompleteProduct(input) {
 export function setOrderByType(input) {
   return {
     type: SET_ORDER_BY_TYPE,
+    payload: input
+  }
+}
+
+export function setOrderDetail(input) {
+  return {
+    type: ORDER_DETAIL,
     payload: input
   }
 }
@@ -181,6 +188,33 @@ export function fetchOrderByStatus(status) {
       .then(response => response.json())
       .then(result => {
         if (Array.isArray(result)) dispatch(setOrderByType(result))
+      })
+      .finally(()=> {
+        dispatch(setIsLoading(false))
+      })
+      .catch(error => console.error('error', error));
+  })
+} 
+
+export function fetchOrderDetail(id) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/orders/${id}`
+    
+    let header = new Headers();
+    header.append("Authorization", cookies.get("token"));
+  
+    let requestOptions = {
+      method: 'GET',
+      headers: header,
+      redirect: 'follow'
+    };
+
+    dispatch(setIsLoading(true))
+    
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        dispatch(setOrderDetail(result))
       })
       .finally(()=> {
         dispatch(setIsLoading(false))

@@ -1,6 +1,7 @@
 import React from 'react'
 import { title, miniBoldFont, miniGreyFont } from '../SharedStyle'
 import {integerToRupiah} from '../../helpers/Function'
+import { useNavigate } from 'react-router-dom'
 
 function Card({order}) {
   let firstItem = order.products_ordereds[0]
@@ -11,8 +12,14 @@ function Card({order}) {
     detailItemOneLine.push(item.name + ' x ' + item.qty)
   });
 
+  const navigate = useNavigate()
+  
+  const handleCardClick = () => {
+    navigate(`/order/${order.order_number}`)
+  }
+
   return (
-    <div style={{ boxSizing: 'border-box', cursor: 'pointer', padding: 11, boxShadow: 'rgb(0 0 0 / 25%) 3px 6px 12px -4px', display: 'flex', margin: 20, borderRadius: 10, flexDirection: 'column', justifyContent: 'space-evenly', border: '1px solid rgb(238, 238, 238)' }} >
+    <div style={{ boxSizing: 'border-box', cursor: 'pointer', padding: 11, boxShadow: 'rgb(0 0 0 / 25%) 3px 6px 12px -4px', display: 'flex', margin: 20, borderRadius: 10, flexDirection: 'column', justifyContent: 'space-evenly', border: '1px solid rgb(238, 238, 238)' }} onClick={handleCardClick} >
       <div style={{ display: 'flex', justifyContent: 'space-between' }} >
         <div>
           <p style={{ fontSize: 16, letterSpacing: '0.5', textOverflow: 'ellipsis', margin: 0 }} >Persada Store</p>
