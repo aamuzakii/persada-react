@@ -46,7 +46,7 @@ export default function BasicGrid() {
           (isLoading)
             ? <div style={{ display: 'flex', flex: 1, justifyContent: 'center', marginTop: 50 }} ><CircularProgress /></div>
             : productToShow.map((obj, index) => (
-              <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={index} >
+              <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center'}} key={obj.id} >
                 <Card name={obj.name} price={obj.price} image_url={obj.image_url} id={obj.id} qty={obj.qty} int_price={obj.int_price} ></Card>
               </Grid>
             ))
