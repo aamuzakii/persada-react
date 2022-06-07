@@ -26,6 +26,10 @@ body {
     width: 90% !important;
     margin: 20px 20px!important;
   }
+
+  .whatsapp-logo {
+    right: calc(45vw - 130px) !important;
+  }
 }
 
 code {
