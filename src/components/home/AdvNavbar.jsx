@@ -125,8 +125,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
     </Menu>
   );
 
@@ -280,4 +279,10 @@ function ProfileChip() {
       }
     </>
   )
+}
+
+function handleLogOut() {
+  const cookies = new Cookies
+  cookies.remove('token', { path: '/' });
+  window.location.reload();
 }
