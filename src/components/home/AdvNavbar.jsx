@@ -88,6 +88,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
+  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
@@ -98,11 +99,36 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
     setMobileMoreAnchorEl(null);
   };
 
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const menuId = 'primary-search-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -141,7 +167,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={toOrdersPage} >
+      <MenuItem onClick={handleProfileMenuOpen} >
         <IconButton
           size="large"
           color="inherit"
@@ -235,6 +261,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
+      {renderMenu}
     </Box>
   );
 }
@@ -248,7 +275,7 @@ function ProfileChip() {
   return (
     <>
       {
-        profileData && token ? <img src={profileData.imageUrl} width="27" style={{ borderRadius: 25 }} />
+        profileData && token ? <img src={profileData.imageUrl} width="27" style={{ borderRadius: 25 }} referrerPolicy="no-referrer" />
                              : <AccountCircle />
       }
     </>
