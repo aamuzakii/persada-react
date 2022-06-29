@@ -11,18 +11,16 @@ import { GoogleLogin } from 'react-google-login';
 import './Input.css'
 
 
-function Delivery() {
+function Input({setLoginState, setPhone, phone}) {
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const cookies = new Cookies();
 
-  const [phone, setPhone] = useState('')
 
   const handleSubmit = async () => {
+    setLoginState("verification")
     await dispatch(requestOTP({ phone }))
-    let token = cookies.get('token')
-    if (token) navigate("/")
   }
 
   const responseGoogle = async (response) => {
@@ -31,7 +29,7 @@ function Delivery() {
     if (token) navigate("/")
   }
 
-  let elevatedContainerLeft2 = { ...elevatedContainerLeft, color: 'blue', height: '80%' }
+  let elevatedContainerLeft2 = { ...elevatedContainerLeft, color: 'blue', height: '80%', boxShadow: 'none' }
 
   return (
     <div style={ elevatedContainerLeft2 } >
@@ -68,4 +66,4 @@ function Delivery() {
   )
 }
 
-export default Delivery
+export default Input
