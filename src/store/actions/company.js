@@ -260,11 +260,16 @@ export function postOTP(payload) {
       body: JSON.stringify(payload)
     };
     
-    fetch(url, requestOptions)
+    return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        const cookies = new Cookies();
-        cookies.set('token', result.token, { path: '/' });
+        if (result.token) {
+          const cookies = new Cookies();
+          cookies.set('token', result.token, { path: '/' });
+          return { result: 'ok' }
+        } else {
+          return { result: result.message }
+        }
         // dispatch(setCookie(result))
 
       })

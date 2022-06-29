@@ -66,9 +66,12 @@ function OtpVerify({ phone }) {
     let d = document.getElementById("digit-4").value;
     let otpCode = a + b+c+d
     let response = await dispatch(postOTP({ phone, otpCode }))
-    console.log(response, `<<<<<,`)
-    let token = cookies.get('token')
-    if (token) navigate("/")
+    if (response.result == 'ok') {
+      let token = cookies.get('token')
+      if (token) navigate("/")
+    } else {
+      alert(response.result)
+    }
 
   }
 
