@@ -13,6 +13,9 @@ function Detail({id, name, price, image_url, qty, int_price}) {
 
   const mutateCartItemQty = (qty) => {
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price } }
+    const asArray = Object.entries(insideCart);
+    const filtered = asArray.filter(([key, obj]) => obj.qty > 0);
+    insideCart = Object.fromEntries(filtered);
     SetCartLocalAndRedux(insideCart, dispatch)
   }
 

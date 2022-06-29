@@ -38,7 +38,11 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
   const dispatch = useDispatch()
 
   const mutateCartItemQty = (qty) => {
+    // beware there are 2 method like this, please make it reusable later
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price} }
+    const asArray = Object.entries(insideCart);
+    const filtered = asArray.filter(([key, obj]) => obj.qty > 0);
+    insideCart = Object.fromEntries(filtered);
     SetCartLocalAndRedux(insideCart, dispatch)
   }
 
