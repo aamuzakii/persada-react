@@ -30,7 +30,7 @@ export default function ChipsRow() {
     }
   ]
   return (
-    <div style={{ display: 'flex', margin: '10px 0px 10px 10px', overflow: 'auto'}} >
+    <div style={{ display: 'flex', overflow: 'auto', paddingLeft: 10, paddingRight: 10 }} >
       {arrOfChip.map(({label, value}) => (
         <Chip
           label={label}
