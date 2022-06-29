@@ -19,6 +19,7 @@ import { setProductToShow } from '../../store/actions/company'
 import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import SideDrawer from './SideDrawer'
+import SimpleSnackbar from '../shared/SimpleSnackbar'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -84,8 +85,10 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
   }
 
   const handleNotificationClick = () => {
-    console.log(cookies.get('cart'))
-    navigate('/orders');
+    if (Object.keys(cookies.get('cart')).length === 0) {
+    } else {
+      navigate('/orders');
+    }
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -264,6 +267,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <SimpleSnackbar/>
     </Box>
   );
 }
