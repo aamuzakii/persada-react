@@ -60,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const cookies = new Cookies
+
 export default function PrimarySearchAppBar({isShowSideDrawer}) {
 
   const dispatch = useDispatch();
@@ -81,7 +83,8 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
     navigate('/cart');
   }
 
-  const toOrdersPage = () => {
+  const handleNotificationClick = () => {
+    console.log(cookies.get('cart'))
     navigate('/orders');
   }
 
@@ -154,7 +157,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
         </IconButton>
         <p>My Cart</p>
       </MenuItem>
-      <MenuItem onClick={toOrdersPage} >
+      <MenuItem onClick={handleNotificationClick} >
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -227,7 +230,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
-              onClick={toOrdersPage}
+              onClick={handleNotificationClick}
             >
               <Badge color="error">
                 <NotificationsIcon />

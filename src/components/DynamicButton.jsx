@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Button} from '@mui/material';
 
-function DynamicButton({childToParent, qtyFromRedux}) {
+function DynamicButton({mutateCartItemQty, qtyFromRedux}) {
 
   let initialQty = qtyFromRedux || 0
 
@@ -11,13 +11,13 @@ function DynamicButton({childToParent, qtyFromRedux}) {
   const increment = () => {
     const newQty = qty + 1
     setQty(newQty);
-    childToParent(newQty)
+    mutateCartItemQty(newQty)
   }
 
   const decrement = () => {
     const newQty = qty - 1
     setQty(newQty);
-    childToParent(newQty)
+    mutateCartItemQty(newQty)
   }
 
   const crementStyle = { cursor: 'pointer', width: '20%', textAlign: 'center' }

@@ -37,7 +37,7 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
   let insideCart = useSelector( state => state.company.insideCart)
   const dispatch = useDispatch()
 
-  const childToParent = (qty) => {
+  const mutateCartItemQty = (qty) => {
     insideCart = { ...insideCart, [id]: {name, qty, image_url, id, price, int_price} }
     SetCartLocalAndRedux(insideCart, dispatch)
   }
@@ -64,7 +64,7 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
         <Typography variant="body2" color="text.primary" sx={{ marginY: 2 }}>
           {price}
         </Typography>
-        <DynamicButton childToParent={childToParent} qtyFromRedux={qty}></DynamicButton>
+        <DynamicButton mutateCartItemQty={mutateCartItemQty} qtyFromRedux={qty}></DynamicButton>
       </div>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
