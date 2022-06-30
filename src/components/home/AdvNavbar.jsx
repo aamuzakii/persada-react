@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import SideDrawer from './SideDrawer'
 import Snackbar from '@mui/material/Snackbar';
+import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -63,7 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const cookies = new Cookies
 
-export default function PrimarySearchAppBar({isShowSideDrawer}) {
+export default function HomeNavbar({isShowSideDrawer, isShowNotifIcon, isShowBackButton}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -212,16 +213,20 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
             sx={{ mr: 2 }}
           >
             {
+              isShowBackButton && (<ArrowBackSharpIcon/>)
+            }
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            {
               isShowSideDrawer && (<SideDrawer/>)
             }
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-          </Typography>
 
           <Search>
             <SearchIconWrapper>
@@ -243,16 +248,22 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-              onClick={handleNotificationClick}
-            >
-              <Badge color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+
+            {
+              isShowNotifIcon && (
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                  onClick={handleNotificationClick}
+                >
+                  <Badge color="error">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+              )
+            }
+            
             <IconButton
               size="large"
               edge="end"

@@ -12,7 +12,7 @@ function Login() {
   if (state == 'entrance') {
     return (
       <>
-        <Navbar></Navbar>
+        <Navbar isShowNotifIcon={false} isShowBackButton={true}  ></Navbar>
         <Input setLoginState={setState} setPhone={setPhone} phone={phone} />
       </>
     )

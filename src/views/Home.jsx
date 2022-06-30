@@ -48,7 +48,7 @@ function Home() {
 
   return (
     <div>
-      <Navbar isShowSideDrawer={isShowSideDrawer} />
+      <Navbar isShowSideDrawer={isShowSideDrawer} isShowNotifIcon={true} />
       <div style={{ width: '100%', height: 233, display: 'flex', justifyContent: 'center', overflow: 'hidden', marginBottom: 15 }} >
         <img style={imageStyle}  src={imageUrl} alt=""  />
       </div>
