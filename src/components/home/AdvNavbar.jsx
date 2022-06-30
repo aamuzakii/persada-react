@@ -19,7 +19,7 @@ import { setProductToShow } from '../../store/actions/company'
 import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import SideDrawer from './SideDrawer'
-import SimpleSnackbar from '../shared/SimpleSnackbar'
+import Snackbar from '@mui/material/Snackbar';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,6 +67,7 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isShowNotifSnackbar, setIsShowNotifSnackbar] = React.useState(false)
 
   const completeProduct = useSelector(state => state.company.completeProduct)
 
@@ -81,15 +82,28 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
   }
 
   const toCart = () => {
-    navigate('/cart');
+    if (!cookies.get('cart')) {
+      return setIsShowNotifSnackbar(true);
+    }
+
+    if (Object.keys(cookies.get('cart')).length === 0) {
+      setIsShowNotifSnackbar(true);
+    } else {
+      navigate('/cart');
+    }
   }
 
   const handleNotificationClick = () => {
-    if (Object.keys(cookies.get('cart')).length === 0) {
-    } else {
-      navigate('/orders');
-    }
+    navigate('/orders');
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setIsShowNotifSnackbar(false);
+  };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -267,7 +281,16 @@ export default function PrimarySearchAppBar({isShowSideDrawer}) {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <SimpleSnackbar/>
+      <Snackbar
+        open={isShowNotifSnackbar}
+        autoHideDuration={1500}
+        message="Keranjang Anda masih kosong"
+        anchorOrigin={{
+           vertical: "bottom",
+           horizontal: "center"
+        }}
+        onClose={handleClose}
+      />
     </Box>
   );
 }
