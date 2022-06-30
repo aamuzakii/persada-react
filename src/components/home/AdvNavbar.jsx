@@ -205,28 +205,30 @@ export default function HomeNavbar({isShowSideDrawer, isShowNotifIcon, isShowBac
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            {
-              isShowBackButton && (<ArrowBackSharpIcon/>)
-            }
-          </IconButton>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            {
-              isShowSideDrawer && (<SideDrawer/>)
-            }
-          </IconButton>
+        
+          {
+            isShowBackButton && (<IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <ArrowBackSharpIcon/>
+            </IconButton>)
+          }
+
+          {
+            isShowSideDrawer && (<IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <SideDrawer/>
+            </IconButton>)
+          }
 
           <Search>
             <SearchIconWrapper>
