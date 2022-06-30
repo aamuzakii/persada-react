@@ -42,3 +42,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.order-page-chips::-webkit-scrollbar {
+  display: none;
+  /* pindah biar cuma komponen chip doang yang gini */
+}

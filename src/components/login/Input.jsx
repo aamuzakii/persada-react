@@ -26,7 +26,16 @@ function Input({setLoginState, setPhone, phone}) {
   const responseGoogle = async (response) => {
     await dispatch(googleLogin(response))
     let token = cookies.get('token')
-    if (token) navigate("/")
+    if (token) {
+      switch (cookies.get('login_referrer')) {
+        case 'post_order':
+          navigate("/cart")
+          break;
+        default:
+          navigate("/")
+          break;
+      }
+    }
   }
 
   let elevatedContainerLeft2 = { ...elevatedContainerLeft, color: 'blue', height: '80%', boxShadow: 'none' }

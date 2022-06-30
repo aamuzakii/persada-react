@@ -11,7 +11,6 @@ function Card({order}) {
     totalProductQty += item.qty
     detailItemOneLine.push(item.name + ' x ' + item.qty)
   });
-
   const navigate = useNavigate()
   
   const handleCardClick = () => {

@@ -47,7 +47,7 @@ function Detail({id, name, price, image_url, qty, int_price}) {
         <div onClick={clickTrashIcon} style={{ cursor: 'pointer' }} ><svg data-testid="close-item" id="0-remove-item" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7.467h1.333m0 0H18m-10.667 0V16.8a1.333 1.333 0 0 0 1.334 1.333h6.666a1.333 1.333 0 0 0 1.334-1.333V7.467H7.333zm2 0V6.133A1.333 1.333 0 0 1 10.667 4.8h2.666a1.333 1.333 0 0 1 1.334 1.333v1.334m-4 3.333v4m2.666-4v4" stroke="#7B8793" strokeLinecap="round" strokeLinejoin="round"></path></svg></div>
       </div>
     </div>
-    <div style={blueMiniFont} >+ Tambah Catatan</div>
+    {/* <div style={blueMiniFont} >+ Tambah Catatan</div> */}
     </div>
   )
 }

@@ -19,24 +19,20 @@ function OtpVerify({ phone }) {
 
     let element = e.target
     let nativeEvent = e.nativeEvent
-    // console.log(e.nativeEvent)
     if (isNaN(element.value)) return false;
 
     // handle special weird event
-    console.log(nativeEvent)
     if (element.id === 'digit-1' && nativeEvent.inputType === 'deleteContentBackward') return false
 
     // sudah dihandle dibawah, biar ga dobel
     if (nativeEvent.code === 'Backspace' && element.value === '') return false;
 
     if (nativeEvent.inputType === 'deleteContentBackward' && element.previousSibling) {
-      console.log(22)
       return element.previousSibling.focus();
     }
 
 
     if (element.nextSibling) {
-      // console.log(nativeEvent)
       return element.nextSibling.focus();
     }
   };
@@ -47,13 +43,11 @@ function OtpVerify({ phone }) {
 
     // hanya utk handle case backspace padahal blm ada isi, pengen mundur
     if (nativeEvent.code === 'Backspace' && element.value === '') {
-      console.log(28)
       return element.previousSibling.focus();
     }
 
     // utk case me replace
     // if (nativeEvent.code !== 'Backspace' && element.value) {
-    //   console.log(229)
     //   element.value = nativeEvent.key
     //   return element.nextSibling.focus();
     // }

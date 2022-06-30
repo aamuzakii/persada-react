@@ -47,10 +47,13 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
     if (isConfirmation) {
       await dispatch(postOrder(order_aggregate))
       if (cookies.get('token')) {
+        // using cookies to prevent user manually type URL to access success page
         cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
         navigate("/success-order")
         SetCartLocalAndRedux( {}, dispatch)
       } else {
+        // using cookies to redirect back after login
+        cookies.set('login_referrer', 'post_order', {path: '/' });
         navigate("/login")
       }
     } else {
