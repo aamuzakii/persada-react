@@ -45,12 +45,17 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
 
   const handleClick = async () => {
     if (isConfirmation) {
-      await dispatch(postOrder(order_aggregate))
       if (cookies.get('token')) {
-        // using cookies to prevent user manually type URL to access success page
-        cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
-        navigate("/success-order")
-        SetCartLocalAndRedux( {}, dispatch)
+        let response = await dispatch(postOrder(order_aggregate))
+        console.log(response, `<<<<<<<<<<`)
+        if (response.code === 201) {
+          // using cookies to prevent user manually type URL to access success page
+          cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});
+          navigate("/success-order")
+          SetCartLocalAndRedux( {}, dispatch)
+        } else {
+          alert("sorry failed to create order, please try again later")
+        }
       } else {
         // using cookies to redirect back after login
         cookies.set('login_referrer', 'post_order', {path: '/' });

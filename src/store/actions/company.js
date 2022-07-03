@@ -240,7 +240,10 @@ export function postOrder(payload) {
     return fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
-        cookies.set('recent_posted_order', result.data.order_number, {path: '/', expires: new Date(Date.now()+5000)});
+        if (result.code === 201) {
+          cookies.set('recent_posted_order', result.data.order_number, {path: '/', expires: new Date(Date.now()+5000)});
+        }
+        return result
         // dispatch(setProductByCategory(result))
       })
       .catch(error => console.error('error', error));
