@@ -1,6 +1,6 @@
 import React from 'react';
-// import {GoogleMap} from "@react-google-maps/api";
-// import {useLoadScript} from "@react-google-maps/api";
+import {GoogleMap} from "@react-google-maps/api";
+import {useLoadScript} from "@react-google-maps/api";
 
 function MapContainer() {
   return (
@@ -26,7 +26,7 @@ const center = {
 function GoogleMaps() {
     const{isLoaded, loadError} = useLoadScript({
         // Uncomment the line below and add your API key
-        googleMapsApiKey: "AIzaSyAXlUgJDNt2tdnM3KygIU9mVhN8duWGpmM"
+        googleMapsApiKey: "AIzaSyDyX2181GZ886fcOytok9bEXQtN0JDMcME"
     });
 
     if (loadError) return "Error loading Maps";
