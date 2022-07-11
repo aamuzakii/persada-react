@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import { GoogleLogin } from 'react-google-login';
 import './Input.css'
+import { authentication } from './firebase'
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 
 function Input({setLoginState, setPhone, phone}) {
@@ -16,10 +18,34 @@ function Input({setLoginState, setPhone, phone}) {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const cookies = new Cookies();
+  setLoginState("verification")
+
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+      'size': 'invisible',
+      'callback': (response) => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        // onSignInSubmit();
+      }
+    }, authentication);
+  }
+
+  const requestOTP = (e) => {
+    let phoneNumber = '+6283894588105'
+    e.preventDefault(); 
+    generateRecaptcha(); 
+    let appVerifier = window.recaptchaVerifier;
+    signInWithPhoneNumber(authentication,phoneNumber,appVerifier)
+    .then(confirmationResult => {
+      window.confirmationResult = confirmationResult; 
+    }).catch(
+      (error) =>  console.log(error)
+    )
+  }
 
 
   const handleSubmit = async () => {
-    setLoginState("verification")
+    
     await dispatch(requestOTP({ phone }))
   }
 
@@ -56,8 +82,11 @@ function Input({setLoginState, setPhone, phone}) {
         value={phone}
         onInput={e => setPhone(e.target.value)}
       />
-      <Button variant="contained" onClick={handleSubmit} >Verifikasi</Button>
+      <Button variant="contained" onClick={requestOTP} id='sign-in-button'>Verifikasi</Button>
       </div>
+
+      {/* GOOGLE LOGIN */}
+
       <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', marginTop: 50 }} >
         <p style={ miniGreyFont } >atau login menggunakan</p>
         <div>

@@ -69,6 +69,19 @@ function OtpVerify({ phone }) {
 
   }
 
+  const verifyOTPFirebase = (e) => {
+    e.preventDefault();
+    let code = '255098'
+
+    window.confirmationResult.confirm(code)
+    .then(result => {
+      console.log(result)
+    }
+    ).catch(
+      (error) =>  console.log(error)
+    )
+  }
+
   return (
     <div style={{ height: '30vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', marginTop: 50 }} >
       <div style={miniGreyFont} >Verifikasi nomer kamu</div>
@@ -81,7 +94,7 @@ function OtpVerify({ phone }) {
           ))
         }
       </form>
-      <Button variant='contained' style={{ width: 400, height: 50 }} onClick={e => verifyOtp(e)} >Verifikasi</Button>
+      <Button variant='contained' style={{ width: 400, height: 50 }} onClick={verifyOTPFirebase} >Verifikasi</Button>
       <Button style={{ fontSize: 12 }} >Kirim ulang kode OTP</Button>
     </div>
   )
