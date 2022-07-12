@@ -306,6 +306,34 @@ export function requestOTP(payload) {
   })
 }
 
+export function verifyFirebaseOTP(payload) {
+  return ((dispatch) => {
+    let url = `${BASE_URI}/authentications/firebase_otp_verification`
+
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+
+    let requestOptions = {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify(payload)
+    };
+    
+    return fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        if (result.token) {
+          const cookies = new Cookies();
+          cookies.set('token', result.token, { path: '/' });
+          return { result: 'ok' }
+        } else {
+          return { result: result.message }
+        }
+      })
+      .catch(error => console.error('error', error));
+  })
+}
+
 export function googleLogin(payload) {
   return ((dispatch) => {
     let url = `${BASE_URI}/authentications/google_login`

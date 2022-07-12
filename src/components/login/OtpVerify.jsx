@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import {Button} from '@mui/material';
-import { miniGreyFont, miniBoldFont  } from '../SharedStyle'
-import { postOTP, requestOTP, googleLogin } from '../../store/actions/company';
-import { useNavigate } from "react-router-dom"
-import Cookies from 'universal-cookie';
+import { Button } from '@mui/material';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
+import { verifyFirebaseOTP } from '../../store/actions/company';
+import { miniGreyFont } from '../SharedStyle';
 
 
 function OtpVerify({ phone }) {
@@ -69,7 +69,7 @@ function OtpVerify({ phone }) {
 
   }
 
-  const verifyOTPFirebase = (event) => {
+  const verifyOTPFirebase = async (event) => {
     event.preventDefault();
     let a = document.getElementById("digit-1").value;
     let b = document.getElementById("digit-2").value;
@@ -79,13 +79,14 @@ function OtpVerify({ phone }) {
     let f = document.getElementById("digit-6").value;
     let otpCode = a + b + c + d + e + f
 
-    window.confirmationResult.confirm(otpCode)
-    .then(result => {
-      console.log(result)
+    let result = await window.confirmationResult.confirm(otpCode)
+    let backEndResponse = await dispatch(verifyFirebaseOTP(result))
+    if (backEndResponse.result == 'ok') {
+      let token = cookies.get('token')
+      if (token) navigate("/")
+    } else {
+      alert(backEndResponse.result)
     }
-    ).catch(
-      (error) =>  console.log(error)
-    )
   }
 
   return (
