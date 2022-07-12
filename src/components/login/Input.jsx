@@ -18,7 +18,6 @@ function Input({setLoginState, setPhone, phone}) {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const cookies = new Cookies();
-  setLoginState("verification")
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
@@ -31,13 +30,14 @@ function Input({setLoginState, setPhone, phone}) {
   }
 
   const requestOTP = (e) => {
-    let phoneNumber = '+6283894588105'
+    let phoneNumber = '+62' + phone
     e.preventDefault(); 
     generateRecaptcha(); 
     let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(authentication,phoneNumber,appVerifier)
     .then(confirmationResult => {
       window.confirmationResult = confirmationResult; 
+      setLoginState("verification")
     }).catch(
       (error) =>  console.log(error)
     )

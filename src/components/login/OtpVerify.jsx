@@ -69,11 +69,17 @@ function OtpVerify({ phone }) {
 
   }
 
-  const verifyOTPFirebase = (e) => {
-    e.preventDefault();
-    let code = '255098'
+  const verifyOTPFirebase = (event) => {
+    event.preventDefault();
+    let a = document.getElementById("digit-1").value;
+    let b = document.getElementById("digit-2").value;
+    let c = document.getElementById("digit-3").value;
+    let d = document.getElementById("digit-4").value;
+    let e = document.getElementById("digit-5").value;
+    let f = document.getElementById("digit-6").value;
+    let otpCode = a + b + c + d + e + f
 
-    window.confirmationResult.confirm(code)
+    window.confirmationResult.confirm(otpCode)
     .then(result => {
       console.log(result)
     }
@@ -89,8 +95,8 @@ function OtpVerify({ phone }) {
       <div style={miniGreyFont} >Kami sudah mengirimkan kode OTP via Whatsapp</div>
       <form method="get" className="digit-group input-container" data-group-name="digits" data-autosubmit="false" autoComplete="off">
         {
-          [1,2,3,4].map((item, index) => (
-            <input onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => handleChange(e)} style={{ width: 40, height: 40, margin: 20, fontSize: 25, textAlign: 'center' }} type="tel" maxLength="1" size="1"  id={"digit-" + item} name="digit-1" data-next="digit-2" autoFocus={index === 0}  />
+          [1,2,3,4,5,6].map((item, index) => (
+            <input key={index} onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => handleChange(e)} style={{ width: 40, height: 40, margin: '20px 10px', fontSize: 25, textAlign: 'center' }} type="tel" maxLength="1" size="1"  id={"digit-" + item} name="digit-1" data-next="digit-2" autoFocus={index === 0}  />
           ))
         }
       </form>

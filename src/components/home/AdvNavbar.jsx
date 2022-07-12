@@ -213,8 +213,9 @@ export default function HomeNavbar({isShowSideDrawer, isShowNotifIcon, isShowBac
               color="inherit"
               aria-label="open drawer"
               sx={{ mr: 2 }}
+              onClick={ () => navigate('/') }
             >
-              <ArrowBackSharpIcon onClick={ () => navigate('/') } />
+              <ArrowBackSharpIcon  />
             </IconButton>)
           }
 
