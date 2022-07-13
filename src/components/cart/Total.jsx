@@ -47,7 +47,6 @@ function CustomerInfo({setIsConfirmation, isConfirmation}) {
     if (isConfirmation) {
       if (cookies.get('token')) {
         let response = await dispatch(postOrder(order_aggregate))
-        console.log(response, `<<<<<<<<<<`)
         if (response.code === 201) {
           // using cookies to prevent user manually type URL to access success page
           cookies.set('prev_url', 'post_order', {path: '/', expires: new Date(Date.now()+5000)});

@@ -39,7 +39,10 @@ function Input({setLoginState, setPhone, phone}) {
       window.confirmationResult = confirmationResult; 
       setLoginState("verification")
     }).catch(
-      (error) =>  console.log(error)
+      (error) =>  {
+        alert("Maaf terjadi kesalahan, Silahkan coba lagi:" + error.message)
+        window.location.reload();
+      }
     )
   }
 

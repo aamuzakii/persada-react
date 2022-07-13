@@ -318,6 +318,8 @@ export function verifyFirebaseOTP(payload) {
       headers: header,
       body: JSON.stringify(payload)
     };
+
+    console.log("payload:", payload)
     
     return fetch(url, requestOptions)
       .then(response => response.json())

@@ -19,7 +19,7 @@ function Login() {
   } else {
     return (
       <>
-        <Navbar></Navbar>
+        <Navbar isShowBackButton={true} ></Navbar>
         <OtpVerify phone={phone} />
       </>
     )

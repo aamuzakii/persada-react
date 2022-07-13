@@ -53,22 +53,6 @@ function OtpVerify({ phone }) {
     // }
   }
 
-  const verifyOtp = async (e) => {
-    let a = document.getElementById("digit-1").value;
-    let b = document.getElementById("digit-2").value;
-    let c = document.getElementById("digit-3").value;
-    let d = document.getElementById("digit-4").value;
-    let otpCode = a + b+c+d
-    let response = await dispatch(postOTP({ phone, otpCode }))
-    if (response.result == 'ok') {
-      let token = cookies.get('token')
-      if (token) navigate("/")
-    } else {
-      alert(response.result)
-    }
-
-  }
-
   const verifyOTPFirebase = async (event) => {
     event.preventDefault();
     let a = document.getElementById("digit-1").value;
@@ -80,6 +64,7 @@ function OtpVerify({ phone }) {
     let otpCode = a + b + c + d + e + f
 
     let result = await window.confirmationResult.confirm(otpCode)
+    console.log("开始与后端服务器验证")
     let backEndResponse = await dispatch(verifyFirebaseOTP(result))
     if (backEndResponse.result == 'ok') {
       let token = cookies.get('token')
