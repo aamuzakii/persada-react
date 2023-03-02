@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 const BASE_URI = process.env.REACT_APP_BASE_URI
+const LAMBDA_GET_ALL_PRODUCTS = process.env.REACT_APP_LAMBDA_GET_ALL_PRODUCTS || 'https://lizcqnyw2afbkpolqgydg5aaci0kecgq.lambda-url.ap-southeast-3.on.aws/'
 
 export function addToFavourite(input) {
   return {
@@ -111,7 +112,7 @@ export function setCartStep(input) {
 
 export function fetchAllProducts() {
   return ((dispatch) => {
-    let url = `${BASE_URI}/products`
+    let url = LAMBDA_GET_ALL_PRODUCTS
 
     let requestOptions = {
       method: 'GET',
