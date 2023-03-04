@@ -70,21 +70,13 @@ export default function RecipeReviewCard({name, price, image_url, id, qty, int_p
         </Typography>
         <DynamicButton mutateCartItemQty={mutateCartItemQty} qtyFromRedux={qty}></DynamicButton>
       </div>
-      <CardActions disableSpacing>
+      <CardActions>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
